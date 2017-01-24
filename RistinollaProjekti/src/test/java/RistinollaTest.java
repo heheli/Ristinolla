@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+
+import kayttaja.Pelaaja;
+import kayttaja.PelaajaVarasto;
+import logiikka.Ristinolla;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,34 +10,32 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author poutihel
- */
+
 public class RistinollaTest {
     
+    Pelaaja eka;
+    Pelaaja toka;
+    PelaajaVarasto varasto;
+    Ristinolla uusiPeli;
+    
     public RistinollaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
+        eka = new Pelaaja();
+        toka = new Pelaaja();
+        varasto = new PelaajaVarasto();
+        uusiPeli = new Ristinolla(1);
     }
     
     @Before
     public void setUp() {
+        eka.setNimi("Pertti");
+        toka.setNimi("Maikki");
+        uusiPeli.setPelaajat(eka, toka);
     }
     
-    @After
-    public void tearDown() {
+    @Test 
+    public void alkuTilanne(){
+        assertEquals(2, uusiPeli.getVarasto().getPelaajaLista().size());
     }
+    
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
