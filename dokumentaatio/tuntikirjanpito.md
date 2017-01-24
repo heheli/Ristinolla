@@ -2,4 +2,4 @@
 Päivä | Tunnit | Kuvaus
 --------------- | ----- | ------
 19.01.2017 | 2.0 | Aiheen suunnittelua, repon luonti ja kansiorakenteen muokkaus
-24.01.2017 | 3.0 | Toisen viikon dl-asioiden tekoa
+24.01.2017 | 4.0 | Pelaaja, PelaajaVarasto ja Ristinolla -luokkien ja testi luokkien tekoa,  README.md tiedoston muokkaus
