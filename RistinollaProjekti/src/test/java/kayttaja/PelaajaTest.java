@@ -1,3 +1,5 @@
+package kayttaja;
+
 
 import kayttaja.Pelaaja;
 import org.junit.After;
