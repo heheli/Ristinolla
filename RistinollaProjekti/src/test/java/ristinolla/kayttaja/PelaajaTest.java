@@ -1,6 +1,7 @@
-package kayttaja;
+package ristinolla.kayttaja;
 
 
+import kayttaja.Pelaaja;
 import kayttaja.Pelaaja;
 import org.junit.After;
 import org.junit.AfterClass;

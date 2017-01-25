@@ -1,9 +1,10 @@
-package logiikka;
+package ristinolla.logiikka;
 
 
 
 import kayttaja.Pelaaja;
 import kayttaja.PelaajaVarasto;
+import logiikka.Ristinolla;
 import logiikka.Ristinolla;
 import org.junit.After;
 import org.junit.AfterClass;
