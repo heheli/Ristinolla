@@ -16,7 +16,6 @@ public class RistinollaTest {
     public RistinollaTest() {
         eka = new Pelaaja();
         toka = new Pelaaja();
-        uusiPeli = new Peli(1);
     }
     
     @Before
