@@ -1,7 +1,7 @@
 
-package logiikka;
+package ristinolla.logiikka;
 
-import kayttaja.Pelaaja;
+import ristinolla.kayttaja.Pelaaja;
 
 
 public class Peli {

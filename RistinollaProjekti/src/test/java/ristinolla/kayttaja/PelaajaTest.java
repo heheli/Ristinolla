@@ -1,6 +1,5 @@
 package ristinolla.kayttaja;
 
-import kayttaja.Pelaaja;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

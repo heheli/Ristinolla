@@ -1,5 +1,5 @@
 
-package kayttaja;
+package ristinolla.kayttaja;
 
 
 public class Pelaaja {

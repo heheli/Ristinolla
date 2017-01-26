@@ -1,8 +1,7 @@
 package ristinolla.logiikka;
 
 
-import kayttaja.Pelaaja;
-import logiikka.Peli;
+import ristinolla.kayttaja.Pelaaja;
 import org.junit.Before;
 
 
