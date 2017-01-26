@@ -10,6 +10,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -30,9 +31,19 @@
                 <version>3.3</version>
             </plugin>
             <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>1.1.8</version>
+    		<groupId>org.pitest</groupId>
+    		<artifactId>pitest-maven</artifactId>
+    		<version>1.1.8</version>
+    		<configuration>
+        		<targetClasses>
+            			<param>ristinolla.logiikka.*</param>
+            			<param>ristinolla.kayttaja.*</param>
+        		</targetClasses>
+        		<targetTests>
+           		 	<param>ristinolla.logiikka.*</param>
+            			<param>ristinolla.kayttaja.*</param>
+        		</targetTests>
+    		</configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
