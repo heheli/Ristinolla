@@ -9,8 +9,6 @@ public class PelaajaTest {
     Pelaaja eka;
     Pelaaja toka;
 
-    public PelaajaTest() {
-    }
 
     @Before
     public void setUp() {
