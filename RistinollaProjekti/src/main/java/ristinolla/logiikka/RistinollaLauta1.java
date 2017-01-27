@@ -9,7 +9,6 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
     private Peli uusiPeli;
 
     public RistinollaLauta1() {
-
         this.uusiPeli = new Peli();
 
         initComponents();
@@ -409,7 +408,6 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RistinollaLauta1().setVisible(true);

@@ -9,7 +9,6 @@ public class PelaajaTest {
     Pelaaja eka;
     Pelaaja toka;
 
-
     @Before
     public void setUp() {
         eka = new Pelaaja();
@@ -22,9 +21,9 @@ public class PelaajaTest {
         eka.setNimi("Pertti");
         assertEquals("Pertti", eka.getNimi());
     }
-    
+
     @Test
-    public void voitonLisays(){
+    public void voitonLisays() {
         assertEquals(0, eka.getVoitetutPelit());
         assertEquals(0, toka.getVoitetutPelit());
         eka.pelinVoitto();

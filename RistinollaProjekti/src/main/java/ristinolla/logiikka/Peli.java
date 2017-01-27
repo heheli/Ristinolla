@@ -46,7 +46,5 @@ public class Peli {
     public void yVoittaa() {
         JOptionPane.showMessageDialog(null, this.pelaaja2 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
-    
-
 
 }
