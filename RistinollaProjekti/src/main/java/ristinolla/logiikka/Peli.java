@@ -22,6 +22,10 @@ public class Peli {
     public void setPelaaja2(Pelaaja toka) {
         this.pelaaja1 = toka;
     }
+    
+    public int rivinPisteet(){
+        return 0;
+    }
 
     public void kenenVuoro() {
         if (this.vuorossa.equalsIgnoreCase("X")) {
