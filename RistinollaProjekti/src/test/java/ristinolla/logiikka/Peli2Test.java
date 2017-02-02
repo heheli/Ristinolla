@@ -47,4 +47,22 @@ public class Peli2Test {
     public void nimetonPelaaja2() {
         assertEquals("", uusi.getPelaaja2());
     }
+
+    public void pisteidenLisays1() {
+        Pelaaja x = new Pelaaja("Pertti");
+        uusi.setPelaaja1(x);
+        assertEquals(0, x.getVoitetutPelit());
+        uusi.xVoittaa();
+        uusi.xVoittaa();
+        assertEquals(2, x.getVoitetutPelit());
+    }
+
+    public void pisteidenLisays2() {
+        Pelaaja y = new Pelaaja("Jonne");
+        uusi.setPelaaja2(y);
+        assertEquals(0, y.getVoitetutPelit());
+        uusi.yVoittaa();
+        uusi.yVoittaa();
+        assertEquals(2, y.getVoitetutPelit());
+    }
 }

@@ -18,12 +18,12 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
 
     private boolean pelinVoitto() {
         boolean vastaus = false;
-        
+
         return vastaus;
     }
-    
-    private void asetaInformaatio(){
-        info.setText("Pelaajat ja pisteet");
+
+    private void asetaInformaatio() {
+//        info.setText(uusiPeli.informaatio());
     }
 
     private void tasaPeli() {

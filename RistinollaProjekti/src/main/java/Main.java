@@ -7,7 +7,7 @@ import ristinolla.logiikka.RistinollaLauta2;
 public class Main {
 
     public static void main(String[] args) {
-        Peli uusipeli = new Peli(2);
+        Peli uusipeli = new Peli(1);
         uusipeli.kaynnista();
     }
 

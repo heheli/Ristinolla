@@ -29,7 +29,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
     }
 
     private void asetaInformaatio() {
-        info.setText("Pelaajat ja pisteet");
+//        info.setText(uusiPeli.informaatio());
     }
 
     private boolean pelinVoitto() {

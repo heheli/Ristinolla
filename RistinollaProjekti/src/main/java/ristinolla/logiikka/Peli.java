@@ -6,15 +6,15 @@ import ristinolla.kayttaja.Pelaaja;
 public class Peli {
 
     private String vuorossa;
-    private Pelaaja pelaaja1;
-    private Pelaaja pelaaja2;
+    Pelaaja pelaaja1;
+    Pelaaja pelaaja2;
     private int peliNro;
 
     public Peli(int peliNro) { //esimerkiksi kolme kokoa; 3x3, 6x6 ja 9x9
         this.pelaaja1 = null;
         this.pelaaja2 = null;
         this.vuorossa = "X";
-        this.peliNro =peliNro;
+        this.peliNro = peliNro;
     }
 
     public void setPelaaja1(Pelaaja eka) {
@@ -23,6 +23,14 @@ public class Peli {
 
     public void setPelaaja2(Pelaaja toka) {
         this.pelaaja1 = toka;
+    }
+
+    public int getPelaajan1Pisteet() {
+        return this.pelaaja1.getVoitetutPelit();
+    }
+
+    public int getPelaajan2Pisteet() {
+        return this.pelaaja2.getVoitetutPelit();
     }
 
     public String getPelaaja1() {
@@ -54,12 +62,20 @@ public class Peli {
     }
 
     public void xVoittaa() {
-
+        this.pelaaja1.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja1 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void yVoittaa() {
+        this.pelaaja2.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja2 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public String informaatio() {
+        String palautus = "Pelaajan " + this.getPelaaja1() + " pisteet: " + getPelaajan1Pisteet()
+                + "\tPelaajan " + this.getPelaaja2() + " pisteet: " + getPelaajan2Pisteet();
+
+        return palautus;
     }
 
     public void kaynnista() {
