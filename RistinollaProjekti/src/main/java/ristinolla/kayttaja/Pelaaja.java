@@ -5,13 +5,9 @@ public class Pelaaja {
     private String nimi;
     private int voitetutPelit;
 
-    public Pelaaja() {
-        this.nimi = null;
-        this.voitetutPelit = 0;
-    }
-
-    public void setNimi(String nimi) {
+    public Pelaaja(String nimi) {
         this.nimi = nimi;
+        this.voitetutPelit = 0;
     }
 
     public void pelinVoitto() {

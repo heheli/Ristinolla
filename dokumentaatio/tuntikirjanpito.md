@@ -6,3 +6,4 @@ Päivä | Tunnit | Kuvaus
 26.01.2017 | 3.0 | checkstyle- ja pit -raporttien teko, koodin muokkaus
 27.01.2017 | 6.0 | Ensimmäinen pelilauta tehty jotenkin
 30.01.2017 | 3.0 | Uusi pelilauta, koodin muokkausta
+02.02.2017 | 3.0 | Pelilautojen muokkausta, luokkien uudelleenjärjestelyä, luokkakaavion muokkausta, testien lisäystä

@@ -9,10 +9,11 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
     private Peli uusiPeli;
 
     public RistinollaLauta1() {
-        this.uusiPeli = new Peli();
+        this.uusiPeli = new Peli(1);
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
+        asetaInformaatio();
     }
 
     private void laudanResetointi() {
@@ -27,6 +28,9 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         jButton9.setText("");
     }
 
+    private void asetaInformaatio() {
+        info.setText("Pelaajat ja pisteet");
+    }
 
     private boolean pelinVoitto() {
         boolean vastaus = true;
@@ -82,7 +86,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        info = new javax.swing.JLabel();
         Ruudukko = new javax.swing.JPanel();
         ruutu1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -116,8 +120,8 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setText("Informaatio");
-        jPanel1.add(jLabel1, java.awt.BorderLayout.PAGE_END);
+        info.setText("Informaatio");
+        jPanel1.add(info, java.awt.BorderLayout.PAGE_END);
 
         Ruudukko.setBackground(java.awt.Color.gray);
         Ruudukko.setForeground(java.awt.Color.black);
@@ -434,9 +438,9 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
 //        });
 //    }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Ruudukko;
+    private javax.swing.JLabel info;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -446,7 +450,6 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

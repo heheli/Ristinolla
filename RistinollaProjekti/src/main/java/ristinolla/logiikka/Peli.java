@@ -8,11 +8,13 @@ public class Peli {
     private String vuorossa;
     private Pelaaja pelaaja1;
     private Pelaaja pelaaja2;
+    private int peliNro;
 
-    public Peli() { //esimerkiksi kolme kokoa; 3x3, 6x6 ja 9x9
+    public Peli(int peliNro) { //esimerkiksi kolme kokoa; 3x3, 6x6 ja 9x9
         this.pelaaja1 = null;
         this.pelaaja2 = null;
         this.vuorossa = "X";
+        this.peliNro =peliNro;
     }
 
     public void setPelaaja1(Pelaaja eka) {
@@ -22,8 +24,16 @@ public class Peli {
     public void setPelaaja2(Pelaaja toka) {
         this.pelaaja1 = toka;
     }
-    
-    public int rivinPisteet(){
+
+    public String getPelaaja1() {
+        return this.pelaaja1.getNimi();
+    }
+
+    public String getPelaaja2() {
+        return this.pelaaja2.getNimi();
+    }
+
+    public int rivinPisteet() {
         return 0;
     }
 
@@ -44,6 +54,7 @@ public class Peli {
     }
 
     public void xVoittaa() {
+
         JOptionPane.showMessageDialog(null, this.pelaaja1 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -51,4 +62,21 @@ public class Peli {
         JOptionPane.showMessageDialog(null, this.pelaaja2 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public void kaynnista() {
+        if (peliNro == 1) {
+            RistinollaLauta1 lauta1 = new RistinollaLauta1();
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    lauta1.setVisible(true);
+                }
+            });
+        } else if (peliNro == 2) {
+            RistinollaLauta2 lauta2 = new RistinollaLauta2();
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    lauta2.setVisible(true);
+                }
+            });
+        }
+    }
 }

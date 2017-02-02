@@ -11,15 +11,14 @@ public class PelaajaTest {
 
     @Before
     public void setUp() {
-        eka = new Pelaaja();
-        toka = new Pelaaja();
+        eka = new Pelaaja("Pertti");
+        toka = new Pelaaja("Jonne");
     }
 
     @Test
     public void testNimi() {
-        assertEquals(null, eka.getNimi());
-        eka.setNimi("Pertti");
         assertEquals("Pertti", eka.getNimi());
+        assertEquals("Jonne", toka.getNimi());
     }
 
     @Test
