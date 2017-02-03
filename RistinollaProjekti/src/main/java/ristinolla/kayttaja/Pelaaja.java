@@ -22,4 +22,9 @@ public class Pelaaja {
         return this.voitetutPelit;
     }
 
+    @Override
+    public String toString() {
+        return this.nimi;
+    }
+
 }

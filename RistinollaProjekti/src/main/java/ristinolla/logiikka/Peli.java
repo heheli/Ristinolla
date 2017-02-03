@@ -8,8 +8,8 @@ import ristinolla.ristinollaprojekti.kayttoliittyma.RistinollaLauta2;
 public class Peli {
 
     private String vuorossa;
-    private Pelaaja pelaaja1;
-    private Pelaaja pelaaja2;
+    public Pelaaja pelaaja1;
+    public Pelaaja pelaaja2;
     private int peliNro;
 
     public Peli(int peliNro) { //esimerkiksi kolme kokoa; 3x3, 6x6
@@ -60,12 +60,12 @@ public class Peli {
     }
 
     public void xVoittaa() {
-        pelaaja1.pelinVoitto();
+        this.pelaaja1.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja1 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void yVoittaa() {
-        pelaaja2.pelinVoitto();
+        this.pelaaja2.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja2 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
