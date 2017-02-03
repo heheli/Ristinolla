@@ -1,6 +1,5 @@
 package ristinolla.logiikka;
 
-
 import javax.swing.JOptionPane;
 import ristinolla.kayttaja.Pelaaja;
 import ristinolla.ristinollaprojekti.kayttoliittyma.RistinollaLauta1;
@@ -9,11 +8,11 @@ import ristinolla.ristinollaprojekti.kayttoliittyma.RistinollaLauta2;
 public class Peli {
 
     private String vuorossa;
-    Pelaaja pelaaja1;
-    Pelaaja pelaaja2;
+    private Pelaaja pelaaja1;
+    private Pelaaja pelaaja2;
     private int peliNro;
 
-    public Peli(int peliNro) { //esimerkiksi kolme kokoa; 3x3, 6x6 ja 9x9
+    public Peli(int peliNro) { //esimerkiksi kolme kokoa; 3x3, 6x6
         this.pelaaja1 = null;
         this.pelaaja2 = null;
         this.vuorossa = "X";
@@ -25,7 +24,7 @@ public class Peli {
     }
 
     public void setPelaaja2(Pelaaja toka) {
-        this.pelaaja1 = toka;
+        this.pelaaja2 = toka;
     }
 
     public int getPelaajan1Pisteet() {
@@ -61,20 +60,21 @@ public class Peli {
     }
 
     public void xVoittaa() {
+        pelaaja1.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja1 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void yVoittaa() {
+        pelaaja2.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja2 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public String informaatio() {
-        String palautus = "Pelaajan " + this.getPelaaja1() + " pisteet: " + getPelaajan1Pisteet()
-                + "\tPelaajan " + this.getPelaaja2() + " pisteet: " + getPelaajan2Pisteet();
-
-        return palautus;
-    }
-
+//    public String informaatio() {
+//        String palautus = "Pelaajan " + this.getPelaaja1() + " pisteet: " + getPelaajan1Pisteet()
+//                + "\tPelaajan " + this.getPelaaja2() + " pisteet: " + getPelaajan2Pisteet();
+//
+//        return palautus;
+//    }
     public void kaynnista() {
         if (peliNro == 1) {
             RistinollaLauta1 lauta1 = new RistinollaLauta1();
