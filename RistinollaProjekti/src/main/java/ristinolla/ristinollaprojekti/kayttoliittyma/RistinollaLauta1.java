@@ -1,8 +1,9 @@
-package ristinolla.logiikka;
+package ristinolla.ristinollaprojekti.kayttoliittyma;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import ristinolla.kayttaja.Pelaaja;
+import ristinolla.logiikka.Peli;
 
 public class RistinollaLauta1 extends javax.swing.JFrame {
 
@@ -33,7 +34,6 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
     }
 
     private boolean pelinVoitto() {
-        boolean vastaus = true;
         if (jButton1.getText().equalsIgnoreCase("X") && jButton2.getText().equalsIgnoreCase("X") && jButton3.getText().equalsIgnoreCase("X")) {
             uusiPeli.xVoittaa();
         } else if (jButton4.getText().equalsIgnoreCase("X") && jButton5.getText().equalsIgnoreCase("X") && jButton6.getText().equalsIgnoreCase("X")) {
@@ -67,9 +67,9 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         } else if (jButton3.getText().equalsIgnoreCase("O") && jButton6.getText().equalsIgnoreCase("O") && jButton9.getText().equalsIgnoreCase("O")) {
             uusiPeli.yVoittaa();
         } else {
-            vastaus = false;
+            return false;
         }
-        return vastaus;
+        return true;
     }
 
     private void tasaPeli() {
@@ -114,7 +114,6 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ristinolla");
         setForeground(java.awt.Color.lightGray);
-        setPreferredSize(new java.awt.Dimension(600, 600));
 
         jPanel1.setBackground(java.awt.Color.lightGray);
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));

@@ -1,8 +1,8 @@
 
 import ristinolla.kayttaja.Pelaaja;
 import ristinolla.logiikka.Peli;
-import ristinolla.logiikka.RistinollaLauta1;
-import ristinolla.logiikka.RistinollaLauta2;
+import ristinolla.ristinollaprojekti.kayttoliittyma.RistinollaLauta1;
+import ristinolla.ristinollaprojekti.kayttoliittyma.RistinollaLauta2;
 
 public class Main {
 

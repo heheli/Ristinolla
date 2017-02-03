@@ -1,7 +1,8 @@
-package ristinolla.logiikka;
+package ristinolla.ristinollaprojekti.kayttoliittyma;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import ristinolla.logiikka.Peli;
 
 public class RistinollaLauta2 extends javax.swing.JFrame {
 

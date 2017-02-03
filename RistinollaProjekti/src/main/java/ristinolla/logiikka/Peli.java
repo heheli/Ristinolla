@@ -1,7 +1,10 @@
 package ristinolla.logiikka;
 
+
 import javax.swing.JOptionPane;
 import ristinolla.kayttaja.Pelaaja;
+import ristinolla.ristinollaprojekti.kayttoliittyma.RistinollaLauta1;
+import ristinolla.ristinollaprojekti.kayttoliittyma.RistinollaLauta2;
 
 public class Peli {
 
@@ -41,10 +44,6 @@ public class Peli {
         return this.pelaaja2.getNimi();
     }
 
-    public int rivinPisteet() {
-        return 0;
-    }
-
     public void kenenVuoro() {
         if (this.vuorossa.equalsIgnoreCase("X")) {
             this.vuorossa = "O";
@@ -62,12 +61,10 @@ public class Peli {
     }
 
     public void xVoittaa() {
-        this.pelaaja1.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja1 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void yVoittaa() {
-        this.pelaaja2.pelinVoitto();
         JOptionPane.showMessageDialog(null, this.pelaaja2 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
