@@ -1,3 +1,5 @@
+package ristinolla.ristinollaprojekti.kayttoliittyma;
+
 
 import ristinolla.kayttaja.Pelaaja;
 import ristinolla.logiikka.Peli;
