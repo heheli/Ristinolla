@@ -1,19 +1,20 @@
-package ristinolla.ristinollaprojekti.kayttoliittyma;
+package ristinolla.gui;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import ristinolla.kayttaja.Pelaaja;
 import ristinolla.logiikka.Peli;
 
 public class RistinollaLauta2 extends javax.swing.JFrame {
 
     private Peli uusiPeli;
 
-    public RistinollaLauta2() {
-        this.uusiPeli = new Peli(2);
+    public RistinollaLauta2(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+        this.uusiPeli = new Peli(pelaaja1, pelaaja2);
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
-        asetaInformaatio();
+        info.setText(uusiPeli.informaatio());
 
     }
 
@@ -21,10 +22,6 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
         boolean vastaus = false;
 
         return vastaus;
-    }
-
-    private void asetaInformaatio() {
-//        info.setText(uusiPeli.informaatio());
     }
 
     private void tasaPeli() {
@@ -695,6 +692,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -711,6 +709,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -727,6 +726,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -743,6 +743,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -759,6 +760,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -775,6 +777,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -791,6 +794,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -807,6 +811,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -823,6 +828,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -839,6 +845,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -855,6 +862,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -871,6 +879,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -887,6 +896,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -903,6 +913,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
@@ -919,6 +930,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
@@ -935,6 +947,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -951,6 +964,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
@@ -967,6 +981,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -983,6 +998,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -999,6 +1015,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -1015,6 +1032,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
@@ -1031,6 +1049,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
@@ -1047,6 +1066,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
@@ -1063,6 +1083,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
@@ -1079,6 +1100,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
@@ -1095,6 +1117,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -1111,6 +1134,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
@@ -1127,6 +1151,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
@@ -1143,6 +1168,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
@@ -1159,6 +1185,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
@@ -1175,6 +1202,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
@@ -1191,6 +1219,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
@@ -1207,6 +1236,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton33ActionPerformed
 
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
@@ -1223,6 +1253,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
@@ -1239,6 +1270,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
@@ -1255,6 +1287,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton36ActionPerformed
 
 //    public static void main(String args[]) {

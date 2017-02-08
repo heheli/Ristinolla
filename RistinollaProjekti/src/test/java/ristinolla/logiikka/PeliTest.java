@@ -1,9 +1,6 @@
 package ristinolla.logiikka;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import ristinolla.kayttaja.Pelaaja;
@@ -16,9 +13,9 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        uusiEka = new Peli(1);
         eka = new Pelaaja("Pertti");
         toka = new Pelaaja("Jonne");
+        uusiEka = new Peli(eka, toka);
     }
 
     @Test
@@ -35,48 +32,91 @@ public class PeliTest {
     }
 
     @Test
-    public void pelaajan1asetus() {
-        uusiEka.setPelaaja1(eka);
-        assertEquals("Pertti", uusiEka.getPelaaja1());
+    public void pelaajanVuoroTest() {
+        assertEquals("Pertti", uusiEka.pelaajanVuoro());
+        uusiEka.kenenVuoro();
+        assertEquals("Jonne", uusiEka.pelaajanVuoro());
+        uusiEka.kenenVuoro();
+        assertEquals("Pertti", uusiEka.pelaajanVuoro());
     }
 
     @Test
-    public void pelaajan2asetus() {
-        uusiEka.setPelaaja2(toka);
-        assertEquals("Jonne", uusiEka.getPelaaja2());
-    }
-    
-    @Test
-    public void pisteetAlussaPelaaja1(){
-        assertEquals(0, eka.getVoitetutPelit());
-    }
-    
-    @Test
-    public void pisteetAlussaPelaaja2(){
-        assertEquals(0, toka.getVoitetutPelit());
-    }
-
-    @Test     
-    public void pisteidenLisays1() {
-        uusiEka.setPelaaja1(eka);
+    public void xVoittaaTest1() {
         assertEquals(0, eka.getVoitetutPelit());
         uusiEka.xVoittaa();
-        assertEquals(1, eka.getVoitetutPelit());
         uusiEka.xVoittaa();
         assertEquals(2, eka.getVoitetutPelit());
-        assertEquals(2, uusiEka.getPelaajan1Pisteet());
     }
 
     @Test
-    public void pisteidenLisays2() {
-        uusiEka.setPelaaja2(toka);
+    public void yVoittaaTest1() {
         assertEquals(0, toka.getVoitetutPelit());
         uusiEka.yVoittaa();
-        assertEquals(1, toka.getVoitetutPelit());
         uusiEka.yVoittaa();
         assertEquals(2, toka.getVoitetutPelit());
-        assertEquals(2, uusiEka.getPelaajan2Pisteet());
     }
-    
+
+    @Test
+    public void xVoittaaTest2() {
+        assertEquals(0, eka.getVoitetutPelit());
+        uusiEka.xVoittaa();
+        uusiEka.xVoittaa();
+        assertEquals(2, eka.getVoitetutPelit());
+        uusiEka.yVoittaa();
+        uusiEka.yVoittaa();
+        assertEquals(2, eka.getVoitetutPelit());
+    }
+
+    @Test
+    public void yVoittaaTest2() {
+        assertEquals(0, toka.getVoitetutPelit());
+        uusiEka.yVoittaa();
+        uusiEka.yVoittaa();
+        assertEquals(2, toka.getVoitetutPelit());
+        uusiEka.xVoittaa();
+        uusiEka.xVoittaa();
+        assertEquals(2, toka.getVoitetutPelit());
+    }
+
+    @Test
+    public void voitotOikeinTasapelissa() {
+        assertEquals(0, eka.getVoitetutPelit());
+        assertEquals(0, toka.getVoitetutPelit());
+        uusiEka.tasaPeli();
+        assertEquals(0, eka.getVoitetutPelit());
+        assertEquals(0, toka.getVoitetutPelit());
+        uusiEka.xVoittaa();
+        uusiEka.tasaPeli();
+        uusiEka.yVoittaa();
+        assertEquals(1, eka.getVoitetutPelit());
+        assertEquals(1, toka.getVoitetutPelit());
+    }
+
+    @Test
+    public void informaatioAlussaOikein() {
+        String testi = "Pelaajan " + "Pertti" + " pisteet: " + 0 + "            Vuorossa: "
+                + "Pertti" + "               "
+                + "Pelaajan " + "Jonne" + " pisteet: " + 0;
+        assertEquals(testi, uusiEka.informaatio());
+    }
+
+    @Test
+    public void informaatioTest1() {
+        uusiEka.xVoittaa();
+        String testi = "Pelaajan " + "Pertti" + " pisteet: " + 1 + "            Vuorossa: "
+                + "Pertti" + "               "
+                + "Pelaajan " + "Jonne" + " pisteet: " + 0;
+        assertEquals(testi, uusiEka.informaatio());
+
+    }
+
+    @Test
+    public void informaatioTest2() {
+        uusiEka.yVoittaa();
+        String testi = "Pelaajan " + "Pertti" + " pisteet: " + 0 + "            Vuorossa: "
+                + "Pertti" + "               "
+                + "Pelaajan " + "Jonne" + " pisteet: " + 1;
+        assertEquals(testi, uusiEka.informaatio());
+    }
 
 }

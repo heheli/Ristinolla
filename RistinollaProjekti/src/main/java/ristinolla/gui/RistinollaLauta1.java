@@ -1,4 +1,4 @@
-package ristinolla.ristinollaprojekti.kayttoliittyma;
+package ristinolla.gui;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -9,12 +9,13 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
 
     private Peli uusiPeli;
 
-    public RistinollaLauta1() {
-        this.uusiPeli = new Peli(1);
+    public RistinollaLauta1(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+        this.uusiPeli = new Peli(pelaaja1, pelaaja2);
+
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
-        asetaInformaatio();
+        info.setText(uusiPeli.informaatio());
     }
 
     private void laudanResetointi() {
@@ -27,10 +28,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         jButton7.setText("");
         jButton8.setText("");
         jButton9.setText("");
-    }
 
-    private void asetaInformaatio() {
-//        info.setText(uusiPeli.informaatio());
     }
 
     private boolean pelinVoitto() {
@@ -275,6 +273,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -291,6 +290,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -307,6 +307,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -323,6 +324,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -339,6 +341,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -355,6 +358,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -371,6 +375,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -387,6 +392,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -403,6 +409,7 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             laudanResetointi();
         }
         tasaPeli();
+        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton9ActionPerformed
 
 //    public static void main(String args[]) {
