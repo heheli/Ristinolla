@@ -54,15 +54,16 @@ public class UusiPeliTest {
         Pelaaja eka = new Pelaaja("Pertti");
         Pelaaja toka = new Pelaaja("Jonne");
         uusiPeli.setPelaaja1(eka);
-        assertEquals(0, eka.getVoitetutPelit());
+        uusiPeli.setPelaaja2(toka);
+        assertEquals(0, uusiPeli.getPelaajan1Pisteet());
         Peli uusi = new Peli(eka, toka);
         uusi.xVoittaa();
-        assertEquals(1, eka.getVoitetutPelit());
+        assertEquals(1, uusiPeli.getPelaajan1Pisteet());
         uusi.yVoittaa();
-        assertEquals(1, toka.getVoitetutPelit());
+        assertEquals(1, uusiPeli.getPelaajan2Pisteet());
         uusi.tasaPeli();
-        assertEquals(1, eka.getVoitetutPelit());
-        assertEquals(1, toka.getVoitetutPelit());
+        assertEquals(1, uusiPeli.getPelaajan1Pisteet());
+        assertEquals(1, uusiPeli.getPelaajan2Pisteet());
     }
 
     @Test
@@ -71,15 +72,16 @@ public class UusiPeliTest {
         Pelaaja eka = new Pelaaja("Pertti");
         Pelaaja toka = new Pelaaja("Jonne");
         uusiPeli.setPelaaja1(eka);
-        assertEquals(0, eka.getVoitetutPelit());
+        uusiPeli.setPelaaja2(toka);
+        assertEquals(0, uusiPeli.getPelaajan1Pisteet());
         Peli uusi = new Peli(eka, toka);
         uusi.xVoittaa();
-        assertEquals(1, eka.getVoitetutPelit());
+        assertEquals(1, uusiPeli.getPelaajan1Pisteet());
         uusi.yVoittaa();
-        assertEquals(1, toka.getVoitetutPelit());
+        assertEquals(1, uusiPeli.getPelaajan2Pisteet());
         uusi.tasaPeli();
-        assertEquals(1, eka.getVoitetutPelit());
-        assertEquals(1, toka.getVoitetutPelit());
+        assertEquals(1, uusiPeli.getPelaajan1Pisteet());
+        assertEquals(1, uusiPeli.getPelaajan2Pisteet());
     }
 
     @Test
