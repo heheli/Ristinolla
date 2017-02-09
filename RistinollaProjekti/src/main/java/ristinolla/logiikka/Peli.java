@@ -25,7 +25,6 @@ public class Peli {
         this.pelaaja2 = pelaaja2;
         this.vuorossa = "X";
         this.taulu = new HashMap();
-
         taulu.put("1.1", "");
         taulu.put("1.2", "");
         taulu.put("1.3", "");
@@ -35,12 +34,10 @@ public class Peli {
         taulu.put("3.1", "");
         taulu.put("3.2", "");
         taulu.put("3.3", "");
-
     }
 
     /**
-     * Pelaajan painaessa nappia, tämä metodin avulla vaihdetaan pelaajan
-     * "arvoa".
+     * Pelaajan painaessa nappia, tällä metodilla vaihdetaan pelaajan "arvoa".
      */
     public void kenenVuoro() {
         if (this.vuorossa.equalsIgnoreCase("X")) {
@@ -54,8 +51,7 @@ public class Peli {
      * Metodilla vaihdetaan taulukkoon ruutuja kuvaaviin kohtiin pelaajien
      * merkit.
      *
-     * @param ruutu Ruudun sijainti, esimerkiksi ensimmäinen ruutu on 1.1 ja sen
-     * alla 2.1
+     * @param ruutu Ruudun sijainti, esim 1. ruutu on 1.1 ja sen alla 2.1
      * @param xy Kumman merkkinen pelaaja teki siirron, X vai Y
      */
     public void vaihdaTaulukonArvo(String ruutu, String xy) {
@@ -88,7 +84,6 @@ public class Peli {
             return true;
         }
         return false;
-
     }
 
     /**
@@ -132,7 +127,6 @@ public class Peli {
      * arvon laudalle.
      */
     public boolean pelinTarkastus() {
-
         if (pelinVoittoX()) {
             xVoittaa();
             return true;
