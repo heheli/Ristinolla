@@ -10,6 +10,9 @@ public class UusiPeli {
     private Pelaaja pelaaja1;
     private Pelaaja pelaaja2;
 
+    /**
+     * @param peliNro pelilaudan numero
+     */
     public UusiPeli(int peliNro) {
         this.peliNro = peliNro;
         this.pelaaja1 = null;
@@ -46,6 +49,9 @@ public class UusiPeli {
         return this.pelaaja2.getNimi();
     }
 
+    /**
+     * Metodilla käynnistetään haluttu pelilauta.
+     */
     public void kaynnista() {
         if (peliNro == 1) {
             RistinollaLauta1 lauta1 = new RistinollaLauta1(this.pelaaja1, this.pelaaja2);
