@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 02.02.2017 | 3.0 | Pelilautojen muokkausta, luokkien uudelleenjärjestelyä, luokkakaavion muokkausta, testien lisäystä
 03.02.2017 | 3.0 | Testien ja luokkien viimeistelyä tähän vaiheeseen, pelilaudat ei toimi oikein
 08.02.2017 | 4.0 | Luokkien muokkausta, yhden luokan lisäys, testien tekoa
+09.02.2017 | 4.0 | Luokkien muokkaus, testien tekoa

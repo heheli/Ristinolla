@@ -31,8 +31,9 @@ public class PelaajaTest {
         assertEquals(2, eka.getVoitetutPelit());
         assertEquals(1, toka.getVoitetutPelit());
     }
+
     @Test
-    public void testaaToString(){
+    public void testaaToString() {
         assertEquals("Pertti", eka.toString());
     }
 

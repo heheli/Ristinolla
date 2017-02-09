@@ -10,71 +10,12 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
     private Peli uusiPeli;
 
     public RistinollaLauta1(Pelaaja pelaaja1, Pelaaja pelaaja2) {
-        this.uusiPeli = new Peli(pelaaja1, pelaaja2);
-
+        uusiPeli = new Peli(pelaaja1, pelaaja2);
+        uusiPeli.laudanResetointi();
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
         info.setText(uusiPeli.informaatio());
-    }
-
-    private void laudanResetointi() {
-        jButton1.setText("");
-        jButton2.setText("");
-        jButton3.setText("");
-        jButton4.setText("");
-        jButton5.setText("");
-        jButton6.setText("");
-        jButton7.setText("");
-        jButton8.setText("");
-        jButton9.setText("");
-
-    }
-
-    private boolean pelinVoitto() {
-        if (jButton1.getText().equalsIgnoreCase("X") && jButton2.getText().equalsIgnoreCase("X") && jButton3.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton4.getText().equalsIgnoreCase("X") && jButton5.getText().equalsIgnoreCase("X") && jButton6.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton7.getText().equalsIgnoreCase("X") && jButton8.getText().equalsIgnoreCase("X") && jButton9.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton1.getText().equalsIgnoreCase("X") && jButton5.getText().equalsIgnoreCase("X") && jButton9.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton3.getText().equalsIgnoreCase("X") && jButton5.getText().equalsIgnoreCase("X") && jButton7.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton1.getText().equalsIgnoreCase("X") && jButton4.getText().equalsIgnoreCase("X") && jButton7.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton2.getText().equalsIgnoreCase("X") && jButton5.getText().equalsIgnoreCase("X") && jButton8.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton3.getText().equalsIgnoreCase("X") && jButton6.getText().equalsIgnoreCase("X") && jButton9.getText().equalsIgnoreCase("X")) {
-            uusiPeli.xVoittaa();
-        } else if (jButton1.getText().equalsIgnoreCase("O") && jButton2.getText().equalsIgnoreCase("O") && jButton3.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else if (jButton4.getText().equalsIgnoreCase("O") && jButton5.getText().equalsIgnoreCase("O") && jButton6.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else if (jButton7.getText().equalsIgnoreCase("O") && jButton8.getText().equalsIgnoreCase("O") && jButton9.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else if (jButton1.getText().equalsIgnoreCase("O") && jButton5.getText().equalsIgnoreCase("O") && jButton9.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else if (jButton3.getText().equalsIgnoreCase("O") && jButton5.getText().equalsIgnoreCase("O") && jButton7.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else if (jButton1.getText().equalsIgnoreCase("O") && jButton4.getText().equalsIgnoreCase("O") && jButton7.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else if (jButton2.getText().equalsIgnoreCase("O") && jButton5.getText().equalsIgnoreCase("O") && jButton8.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else if (jButton3.getText().equalsIgnoreCase("O") && jButton6.getText().equalsIgnoreCase("O") && jButton9.getText().equalsIgnoreCase("O")) {
-            uusiPeli.yVoittaa();
-        } else {
-            return false;
-        }
-        return true;
-    }
-
-    private void tasaPeli() {
-        if (jButton1.getText() != "" && jButton2.getText() != "" && jButton3.getText() != "" && jButton4.getText() != "" && jButton5.getText() != "" && jButton6.getText() != "" && jButton7.getText() != "" && jButton8.getText() != "" && jButton9.getText() != "") {
-            uusiPeli.tasaPeli();
-            laudanResetointi();
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -258,26 +199,43 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void laudanResetointi() {
+        jButton1.setText("");
+        jButton2.setText("");
+        jButton3.setText("");
+        jButton4.setText("");
+        jButton5.setText("");
+        jButton6.setText("");
+        jButton7.setText("");
+        jButton8.setText("");
+        jButton9.setText("");
+        uusiPeli.laudanResetointi();
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jButton1.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("1.1").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("1.1", uusiPeli.getVuoro());
             jButton1.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton1.setForeground(Color.red);
             } else {
                 jButton1.setForeground(Color.blue);
             }
+
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+
         }
 
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if (jButton5.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("2.2").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("2.2", uusiPeli.getVuoro());
             jButton5.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton5.setForeground(Color.red);
@@ -285,16 +243,18 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
                 jButton5.setForeground(Color.blue);
             }
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (jButton2.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("1.2").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("1.2", uusiPeli.getVuoro());
             jButton2.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton2.setForeground(Color.red);
@@ -302,16 +262,18 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
                 jButton2.setForeground(Color.blue);
             }
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (jButton3.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("1.3").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("1.3", uusiPeli.getVuoro());
             jButton3.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton3.setForeground(Color.red);
@@ -319,16 +281,18 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
                 jButton3.setForeground(Color.blue);
             }
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (jButton4.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("2.1").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("2.1", uusiPeli.getVuoro());
             jButton4.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton4.setForeground(Color.red);
@@ -336,16 +300,18 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
                 jButton4.setForeground(Color.blue);
             }
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        if (jButton6.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("2.3").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("2.3", uusiPeli.getVuoro());
             jButton6.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton6.setForeground(Color.red);
@@ -353,16 +319,18 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
                 jButton6.setForeground(Color.blue);
             }
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if (jButton7.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("3.1").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("3.1", uusiPeli.getVuoro());
             jButton7.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton7.setForeground(Color.red);
@@ -370,16 +338,18 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
                 jButton7.setForeground(Color.blue);
             }
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if (jButton8.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("3.2").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("3.2", uusiPeli.getVuoro());
             jButton8.setText(uusiPeli.getVuoro());
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton8.setForeground(Color.red);
@@ -387,28 +357,32 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
                 jButton8.setForeground(Color.blue);
             }
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        if (jButton9.getText().equalsIgnoreCase("")) {
+
+        if (uusiPeli.getPistetaulukko().get("3.3").equalsIgnoreCase("")) {
+            uusiPeli.vaihdaTaulukonArvo("3.3", uusiPeli.getVuoro());
             jButton9.setText(uusiPeli.getVuoro());
+
             if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
                 jButton9.setForeground(Color.red);
             } else {
                 jButton9.setForeground(Color.blue);
             }
+
             uusiPeli.kenenVuoro();
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
+
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton9ActionPerformed
 
