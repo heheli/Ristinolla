@@ -1,7 +1,6 @@
 package ristinolla.gui;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import ristinolla.kayttaja.Pelaaja;
 import ristinolla.logiikka.Peli;
 
@@ -11,6 +10,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
 
     public RistinollaLauta2(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         this.uusiPeli = new Peli(pelaaja1, pelaaja2);
+        uusiPeli.laudanResetointi();
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
@@ -18,10 +18,8 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
 
     }
 
-    private boolean pelinVoitto() {
-        boolean vastaus = false;
-
-        return vastaus;
+    public boolean pelinVoitto() {
+        return true;
     }
 
     private void tasaPeli() {

@@ -4,5 +4,5 @@
 
 * Käyttäjän toiminnot: Pystyy käynnistämään pelin, nimeämään pelaajat, valitsemaan eri kentän ja pelaamaan
 
-* Määrittelyvaiheen luokkakaavio:  ![luokkakaavio](RistinollaLuokkakaavioVko4.png)
+* Määrittelyvaiheen luokkakaavio:  ![luokkakaavio](RistinollaLuokkakaavioVko5.png)
 

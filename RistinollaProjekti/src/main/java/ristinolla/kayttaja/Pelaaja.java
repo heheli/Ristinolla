@@ -10,6 +10,8 @@ public class Pelaaja {
     private int voitetutPelit;
 
     /**
+     * Pelaaja-luokan konstruktori, jossa nimi ja laskuri voitoille.
+     *
      * @param nimi Pelaajalle asetettu nimi
      */
     public Pelaaja(String nimi) {

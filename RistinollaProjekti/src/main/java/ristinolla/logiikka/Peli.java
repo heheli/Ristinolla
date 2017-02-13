@@ -1,6 +1,5 @@
 package ristinolla.logiikka;
 
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 import ristinolla.kayttaja.Pelaaja;
 
@@ -12,7 +11,8 @@ public class Peli {
     private String vuorossa;
     private Pelaaja pelaaja1;
     private Pelaaja pelaaja2;
-    private HashMap<String, String> taulu;
+
+    private Merkki[][] merkkitaulu;
 
     /**
      * Konstruktori sisältää taulun, jonka avulla seurataan pelin kulkua.
@@ -20,20 +20,11 @@ public class Peli {
      * @param pelaaja1 Pelaaja 1
      * @param pelaaja2 Pelaaja 2
      */
-    public Peli(Pelaaja pelaaja1, Pelaaja pelaaja2) { //esimerkiksi kolme kokoa; 3x3, 6x6
+    public Peli(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         this.pelaaja1 = pelaaja1;
         this.pelaaja2 = pelaaja2;
         this.vuorossa = "X";
-        this.taulu = new HashMap();
-        taulu.put("1.1", "");
-        taulu.put("1.2", "");
-        taulu.put("1.3", "");
-        taulu.put("2.1", "");
-        taulu.put("2.2", "");
-        taulu.put("2.3", "");
-        taulu.put("3.1", "");
-        taulu.put("3.2", "");
-        taulu.put("3.3", "");
+        this.merkkitaulu = new Merkki[3][3];
     }
 
     /**
@@ -47,40 +38,31 @@ public class Peli {
         }
     }
 
-    /**
-     * Metodilla vaihdetaan taulukkoon ruutuja kuvaaviin kohtiin pelaajien
-     * merkit.
-     *
-     * @param ruutu Ruudun sijainti, esim 1. ruutu on 1.1 ja sen alla 2.1
-     * @param xy Kumman merkkinen pelaaja teki siirron, X vai Y
-     */
-    public void vaihdaTaulukonArvo(String ruutu, String xy) {
-        this.taulu.put(ruutu, xy);
-    }
-
-    public HashMap<String, String> getPistetaulukko() {
-        return this.taulu;
+    public Merkki[][] getMerkkitaulu() {
+        return this.merkkitaulu;
     }
 
     /**
      * Metodilla tarkastetaan voittiko x-pelaaja.
+     *
+     * @return totuusarvo ristin voitosta
      */
     public boolean pelinVoittoX() {
-        if (taulu.get("1.1").equals("X") && taulu.get("1.2").equals("X") && taulu.get("1.3").equals("X")) {
+        if (merkkitaulu[0][0] == Merkki.RISTI && merkkitaulu[0][1] == Merkki.RISTI && merkkitaulu[0][2] == Merkki.RISTI) {
             return true;
-        } else if (taulu.get("2.1").equals("X") && taulu.get("2.2").equals("X") && taulu.get("2.3").equals("X")) {
+        } else if (merkkitaulu[1][0] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[1][2] == Merkki.RISTI) {
             return true;
-        } else if (taulu.get("3.1").equals("X") && taulu.get("3.2").equals("X") && taulu.get("3.3").equals("X")) {
+        } else if (merkkitaulu[2][0] == Merkki.RISTI && merkkitaulu[2][1] == Merkki.RISTI && merkkitaulu[2][2] == Merkki.RISTI) {
             return true;
-        } else if (taulu.get("1.1").equals("X") && taulu.get("2.1").equals("X") && taulu.get("3.1").equals("X")) {
+        } else if (merkkitaulu[0][0] == Merkki.RISTI && merkkitaulu[1][0] == Merkki.RISTI && merkkitaulu[2][0] == Merkki.RISTI) {
             return true;
-        } else if (taulu.get("1.2").equals("X") && taulu.get("2.2").equals("X") && taulu.get("3.2").equals("X")) {
+        } else if (merkkitaulu[0][1] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[2][1] == Merkki.RISTI) {
             return true;
-        } else if (taulu.get("1.3").equals("X") && taulu.get("2.3").equals("X") && taulu.get("3.3").equals("X")) {
+        } else if (merkkitaulu[0][2] == Merkki.RISTI && merkkitaulu[1][2] == Merkki.RISTI && merkkitaulu[2][2] == Merkki.RISTI) {
             return true;
-        } else if (taulu.get("1.1").equals("X") && taulu.get("2.2").equals("X") && taulu.get("3.3").equals("X")) {
+        } else if (merkkitaulu[2][0] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[0][2] == Merkki.RISTI) {
             return true;
-        } else if (taulu.get("3.1").equals("X") && taulu.get("2.2").equals("X") && taulu.get("1.3").equals("X")) {
+        } else if (merkkitaulu[0][0] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[2][2] == Merkki.RISTI) {
             return true;
         }
         return false;
@@ -88,23 +70,25 @@ public class Peli {
 
     /**
      * Metodilla tarkastetaan voittiko o-pelaaja.
+     *
+     * @return totuusarvo nollan voitosta
      */
-    public boolean pelinVoittoY() {
-        if (taulu.get("1.1").equals("O") && taulu.get("1.2").equals("O") && taulu.get("1.3").equals("O")) {
+    public boolean pelinVoittoO() {
+        if (merkkitaulu[0][0] == Merkki.NOLLA && merkkitaulu[0][1] == Merkki.NOLLA && merkkitaulu[0][2] == Merkki.NOLLA) {
             return true;
-        } else if (taulu.get("2.1").equals("O") && taulu.get("2.2").equals("O") && taulu.get("2.3").equals("O")) {
+        } else if (merkkitaulu[1][0] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[1][2] == Merkki.NOLLA) {
             return true;
-        } else if (taulu.get("3.1").equals("O") && taulu.get("3.2").equals("O") && taulu.get("3.3").equals("O")) {
+        } else if (merkkitaulu[2][0] == Merkki.NOLLA && merkkitaulu[2][1] == Merkki.NOLLA && merkkitaulu[2][2] == Merkki.NOLLA) {
             return true;
-        } else if (taulu.get("1.1").equals("O") && taulu.get("2.1").equals("O") && taulu.get("3.1").equals("O")) {
+        } else if (merkkitaulu[0][0] == Merkki.NOLLA && merkkitaulu[1][0] == Merkki.NOLLA && merkkitaulu[2][0] == Merkki.NOLLA) {
             return true;
-        } else if (taulu.get("1.2").equals("O") && taulu.get("2.2").equals("O") && taulu.get("3.2").equals("O")) {
+        } else if (merkkitaulu[0][1] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[2][1] == Merkki.NOLLA) {
             return true;
-        } else if (taulu.get("1.3").equals("O") && taulu.get("2.3").equals("O") && taulu.get("3.3").equals("O")) {
+        } else if (merkkitaulu[0][2] == Merkki.NOLLA && merkkitaulu[1][2] == Merkki.NOLLA && merkkitaulu[2][2] == Merkki.NOLLA) {
             return true;
-        } else if (taulu.get("1.1").equals("O") && taulu.get("2.2").equals("O") && taulu.get("3.3").equals("O")) {
+        } else if (merkkitaulu[2][0] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[0][2] == Merkki.NOLLA) {
             return true;
-        } else if (taulu.get("3.1").equals("O") && taulu.get("2.2").equals("O") && taulu.get("1.3").equals("O")) {
+        } else if (merkkitaulu[0][0] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[2][2] == Merkki.NOLLA) {
             return true;
         }
         return false;
@@ -112,12 +96,28 @@ public class Peli {
 
     /**
      * Metodilla tarkastetaan tuliko tasapeli.
+     *
+     * @return totuusarvo tasapelistä
      */
     public boolean tasaPeli() {
-        for (String xy : this.taulu.values()) {
-            if (xy.isEmpty()) {
-                return false;
-            }
+        if (merkkitaulu[0][0] == null) {
+            return false;
+        } else if (merkkitaulu[0][1] == null) {
+            return false;
+        } else if (merkkitaulu[0][2] == null) {
+            return false;
+        } else if (merkkitaulu[1][0] == null) {
+            return false;
+        } else if (merkkitaulu[1][1] == null) {
+            return false;
+        } else if (merkkitaulu[1][2] == null) {
+            return false;
+        } else if (merkkitaulu[2][0] == null) {
+            return false;
+        } else if (merkkitaulu[2][1] == null) {
+            return false;
+        } else if (merkkitaulu[2][2] == null) {
+            return false;
         }
         return true;
     }
@@ -125,13 +125,15 @@ public class Peli {
     /**
      * Metodi kokoaa kaikki pelin päättymiseen liittyvät metodit, ja palauttaa
      * arvon laudalle.
+     *
+     * @return totuusarvo sille loppuuko peli
      */
     public boolean pelinTarkastus() {
         if (pelinVoittoX()) {
             xVoittaa();
             return true;
         }
-        if (pelinVoittoY()) {
+        if (pelinVoittoO()) {
             yVoittaa();
             return true;
         }
@@ -146,15 +148,15 @@ public class Peli {
      * Resetoidaan taulukon arvot yhden pelin päättyessä.
      */
     public void laudanResetointi() {
-        taulu.put("1.1", "");
-        taulu.put("1.2", "");
-        taulu.put("1.3", "");
-        taulu.put("2.1", "");
-        taulu.put("2.2", "");
-        taulu.put("2.3", "");
-        taulu.put("3.1", "");
-        taulu.put("3.2", "");
-        taulu.put("3.3", "");
+        merkkitaulu[0][0] = null;
+        merkkitaulu[0][1] = null;
+        merkkitaulu[0][2] = null;
+        merkkitaulu[1][0] = null;
+        merkkitaulu[1][1] = null;
+        merkkitaulu[1][2] = null;
+        merkkitaulu[2][0] = null;
+        merkkitaulu[2][1] = null;
+        merkkitaulu[2][2] = null;
     }
 
     /**
@@ -171,6 +173,8 @@ public class Peli {
     /**
      * Metodilla palautetaan vuorossa olevan pelaajan nimi. Tarvitaan pelilaudan
      * alareunassa olevaan lokeroon, mikä kertoo kumman pelaajan vuoro on.
+     *
+     * @return palauttaa vuorossa olevan pelaajan nimen
      */
     public String pelaajanVuoro() {
         if (this.vuorossa.equals("X")) {
