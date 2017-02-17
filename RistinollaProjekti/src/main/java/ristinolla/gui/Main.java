@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Pelaaja x = new Pelaaja("Pertti");
         Pelaaja y = new Pelaaja("Jonne");
-        kaynnista(3, x, y);
+        kaynnista(1, x, y);
     }
 
     public static void kaynnista(int peli, Pelaaja x, Pelaaja y) {

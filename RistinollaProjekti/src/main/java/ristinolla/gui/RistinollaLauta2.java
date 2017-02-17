@@ -9,8 +9,7 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
     private Peli uusiPeli;
 
     public RistinollaLauta2(Pelaaja pelaaja1, Pelaaja pelaaja2) {
-        this.uusiPeli = new Peli(pelaaja1, pelaaja2);
-        uusiPeli.laudanResetointi();
+        uusiPeli = new Peli(pelaaja1, pelaaja2);
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);

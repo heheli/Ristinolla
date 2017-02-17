@@ -11,3 +11,4 @@ Päivä | Tunnit | Kuvaus
 08.02.2017 | 4.0 | Luokkien muokkausta, yhden luokan lisäys, testien tekoa
 09.02.2017 | 4.0 | Luokkien muokkaus, testien tekoa
 13.02.2017 | 3.0 | Uusi lauta, vanhojen luokkien muokkausta
+17.02.2017 | 1.5 | Sekvenssikaavion teko

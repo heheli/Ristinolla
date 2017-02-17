@@ -2,7 +2,7 @@
 Ristinolla-projekti
 
 ## Aihekuvaus
-> Ristinolla-peli kahdelle henkilölle. Peliä mahdollista pelata kolmella erilaisella ruudukolla. Ennen pelin alkua pelaajilta kysytään nimet, pelin koko ja mahdollisesti ulkoasuun liittyvä kysymys. Pelin loputtua kerrotaan voittaja ja kyseisen pelin käynnistyksen jälkeen paras pelaaja.
+> Ristinolla-peli kahdelle henkilölle. Peliä mahdollista pelata kolmella erilaisella laudalla. Ennen pelin alkua pelaajilta kysytään nimet ja annetaan valita kolmesta vaihtoehdosta. Pelin loputtua kerrotaan voittaja tai jos tulee tasapeli.
 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md) 
 
