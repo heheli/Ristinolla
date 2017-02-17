@@ -8,7 +8,7 @@ Ristinolla-projekti
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[pit-raportti](https://htmlpreview.github.io/?https://github.com/heheli/Ristinolla/blob/master/dokumentaatio/pit-raportti/201702091837/index.html) 
+[pit-raportti](https://htmlpreview.github.io/?https://github.com/heheli/Ristinolla/blob/master/dokumentaatio/pit-raportti/201702171632/index.html) 
 
 [checkstyle](https://htmlpreview.github.io/?https://github.com/heheli/Ristinolla/blob/master/dokumentaatio/checkstyle-raportti/checkstyle.html)
 
