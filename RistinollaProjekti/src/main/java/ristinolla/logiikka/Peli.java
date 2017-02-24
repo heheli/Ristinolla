@@ -1,17 +1,18 @@
 package ristinolla.logiikka;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+import ristinolla.gui.Viestit;
 import ristinolla.kayttaja.Pelaaja;
 
 /**
  * Luokka sisältää pelilautojen logiikkaa.
  */
-public class Peli {
+public class Peli extends Viestit {
 
-    private String vuorossa;
+    private Merkki vuorossa;
     private Pelaaja pelaaja1;
     private Pelaaja pelaaja2;
-
     private Merkki[][] merkkitaulu;
 
     /**
@@ -23,18 +24,19 @@ public class Peli {
     public Peli(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         this.pelaaja1 = pelaaja1;
         this.pelaaja2 = pelaaja2;
-        this.vuorossa = "X";
+        this.vuorossa = Merkki.RISTI;
         this.merkkitaulu = new Merkki[3][3];
+
     }
 
     /**
      * Pelaajan painaessa nappia, tällä metodilla vaihdetaan pelaajan "arvoa".
      */
-    public void kenenVuoro() {
-        if (this.vuorossa.equalsIgnoreCase("X")) {
-            this.vuorossa = "O";
+    public void vaihdaVuoro() {
+        if (this.vuorossa.equals(Merkki.RISTI)) {
+            this.vuorossa = Merkki.NOLLA;
         } else {
-            this.vuorossa = "X";
+            this.vuorossa = Merkki.RISTI;
         }
     }
 
@@ -43,53 +45,81 @@ public class Peli {
     }
 
     /**
-     * Metodilla tarkastetaan voittiko x-pelaaja.
+     * Metodilla tarkastetaan tuliko voitto jollekin vaakariville.
      *
-     * @return totuusarvo ristin voitosta
+     * @param merkki Tarkastettava merkki
+     * @return Voiton totuusarvo
      */
-    public boolean pelinVoittoX() {
-        if (merkkitaulu[0][0] == Merkki.RISTI && merkkitaulu[0][1] == Merkki.RISTI && merkkitaulu[0][2] == Merkki.RISTI) {
-            return true;
-        } else if (merkkitaulu[1][0] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[1][2] == Merkki.RISTI) {
-            return true;
-        } else if (merkkitaulu[2][0] == Merkki.RISTI && merkkitaulu[2][1] == Merkki.RISTI && merkkitaulu[2][2] == Merkki.RISTI) {
-            return true;
-        } else if (merkkitaulu[0][0] == Merkki.RISTI && merkkitaulu[1][0] == Merkki.RISTI && merkkitaulu[2][0] == Merkki.RISTI) {
-            return true;
-        } else if (merkkitaulu[0][1] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[2][1] == Merkki.RISTI) {
-            return true;
-        } else if (merkkitaulu[0][2] == Merkki.RISTI && merkkitaulu[1][2] == Merkki.RISTI && merkkitaulu[2][2] == Merkki.RISTI) {
-            return true;
-        } else if (merkkitaulu[2][0] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[0][2] == Merkki.RISTI) {
-            return true;
-        } else if (merkkitaulu[0][0] == Merkki.RISTI && merkkitaulu[1][1] == Merkki.RISTI && merkkitaulu[2][2] == Merkki.RISTI) {
+    public boolean tulikoVoittoVaaka(Merkki merkki) {
+        for (int y = 0; y < 3; y++) {
+            int maara = 0;
+            for (int x = 0; x < 3; x++) {
+                if (merkkitaulu[y][x] == merkki) {
+                    maara++;
+                }
+            }
+            if (maara == 3) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Metodilla tarkastetaan tuliko voitto jollekin pystyriville.
+     *
+     * @param merkki Tarkastettava merkki
+     * @return Voiton totuusarvo
+     */
+    public boolean tulikoVoittoPysty(Merkki merkki) {
+        for (int y = 0; y < 3; y++) {
+            int maara = 0;
+            for (int x = 0; x < 3; x++) {
+                if (merkkitaulu[x][y] == merkki) {
+                    maara++;
+                }
+            }
+            if (maara == 3) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Metodilla tarkastetaan tuliko voitto nurkasta nurkkaan.
+     *
+     * @param merkki Tarkastettava merkki
+     * @return Voiton totuusarvo
+     */
+    public boolean tulikoVoittoKulma1(Merkki merkki) {
+        int maara = 0;
+        for (int i = 0; i < 3; i++) {
+            if (merkkitaulu[i][i] == merkki) {
+                maara++;
+            }
+        }
+        if (maara == 3) {
             return true;
         }
         return false;
     }
 
     /**
-     * Metodilla tarkastetaan voittiko o-pelaaja.
+     * Metodilla tarkastetaan tuliko voitto nurkasta nurkkaan.
      *
-     * @return totuusarvo nollan voitosta
+     * @param merkki Tarkastettava merkki
+     * @return Voiton totuusarvo
      */
-    public boolean pelinVoittoO() {
-        if (merkkitaulu[0][0] == Merkki.NOLLA && merkkitaulu[0][1] == Merkki.NOLLA && merkkitaulu[0][2] == Merkki.NOLLA) {
-            return true;
-        } else if (merkkitaulu[1][0] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[1][2] == Merkki.NOLLA) {
-            return true;
-        } else if (merkkitaulu[2][0] == Merkki.NOLLA && merkkitaulu[2][1] == Merkki.NOLLA && merkkitaulu[2][2] == Merkki.NOLLA) {
-            return true;
-        } else if (merkkitaulu[0][0] == Merkki.NOLLA && merkkitaulu[1][0] == Merkki.NOLLA && merkkitaulu[2][0] == Merkki.NOLLA) {
-            return true;
-        } else if (merkkitaulu[0][1] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[2][1] == Merkki.NOLLA) {
-            return true;
-        } else if (merkkitaulu[0][2] == Merkki.NOLLA && merkkitaulu[1][2] == Merkki.NOLLA && merkkitaulu[2][2] == Merkki.NOLLA) {
-            return true;
-        } else if (merkkitaulu[2][0] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[0][2] == Merkki.NOLLA) {
-            return true;
-        } else if (merkkitaulu[0][0] == Merkki.NOLLA && merkkitaulu[1][1] == Merkki.NOLLA && merkkitaulu[2][2] == Merkki.NOLLA) {
-            return true;
+    public boolean tulikoVoittoKulma2(Merkki merkki) {
+        int maara = 0;
+        for (int i = merkkitaulu.length - 1; i > -1; i--) {
+            if (merkkitaulu[merkkitaulu.length - i - 1][i] == merkki) {
+                maara++;
+            }
+            if (maara == 3) {
+                return true;
+            }
         }
         return false;
     }
@@ -100,24 +130,12 @@ public class Peli {
      * @return totuusarvo tasapelistä
      */
     public boolean tasaPeli() {
-        if (merkkitaulu[0][0] == null) {
-            return false;
-        } else if (merkkitaulu[0][1] == null) {
-            return false;
-        } else if (merkkitaulu[0][2] == null) {
-            return false;
-        } else if (merkkitaulu[1][0] == null) {
-            return false;
-        } else if (merkkitaulu[1][1] == null) {
-            return false;
-        } else if (merkkitaulu[1][2] == null) {
-            return false;
-        } else if (merkkitaulu[2][0] == null) {
-            return false;
-        } else if (merkkitaulu[2][1] == null) {
-            return false;
-        } else if (merkkitaulu[2][2] == null) {
-            return false;
+        for (int i = 0; i < merkkitaulu.length; i++) {
+            for (int j = 0; j < merkkitaulu.length; j++) {
+                if (merkkitaulu[i][j] == null) {
+                    return false;
+                }
+            }
         }
         return true;
     }
@@ -129,12 +147,36 @@ public class Peli {
      * @return totuusarvo sille loppuuko peli
      */
     public boolean pelinTarkastus() {
-        if (pelinVoittoX()) {
-            xVoittaa();
+        if (tulikoVoittoVaaka(Merkki.RISTI) || tulikoVoittoVaaka(Merkki.NOLLA)) {
+            if (this.vuorossa == Merkki.RISTI) {
+                xVoittaa(this.pelaaja1);
+            } else {
+                yVoittaa(this.pelaaja2);
+            }
             return true;
         }
-        if (pelinVoittoO()) {
-            yVoittaa();
+        if (tulikoVoittoPysty(Merkki.RISTI) || tulikoVoittoPysty(Merkki.NOLLA)) {
+            if (this.vuorossa == Merkki.RISTI) {
+                xVoittaa(this.pelaaja1);
+            } else {
+                yVoittaa(this.pelaaja2);
+            }
+            return true;
+        }
+        if (tulikoVoittoKulma1(Merkki.RISTI) || tulikoVoittoKulma1(Merkki.NOLLA)) {
+            if (this.vuorossa == Merkki.RISTI) {
+                xVoittaa(this.pelaaja1);
+            } else {
+                yVoittaa(this.pelaaja2);
+            }
+            return true;
+        }
+        if (tulikoVoittoKulma2(Merkki.RISTI) || tulikoVoittoKulma2(Merkki.NOLLA)) {
+            if (this.vuorossa == Merkki.RISTI) {
+                xVoittaa(this.pelaaja1);
+            } else {
+                yVoittaa(this.pelaaja2);
+            }
             return true;
         }
         if (tasaPeli()) {
@@ -148,55 +190,39 @@ public class Peli {
      * Resetoidaan taulukon arvot yhden pelin päättyessä.
      */
     public void laudanResetointi() {
-        merkkitaulu[0][0] = null;
-        merkkitaulu[0][1] = null;
-        merkkitaulu[0][2] = null;
-        merkkitaulu[1][0] = null;
-        merkkitaulu[1][1] = null;
-        merkkitaulu[1][2] = null;
-        merkkitaulu[2][0] = null;
-        merkkitaulu[2][1] = null;
-        merkkitaulu[2][2] = null;
+        for (int i = 0; i < merkkitaulu.length; i++) {
+            for (int j = 0; j < merkkitaulu.length; j++) {
+                merkkitaulu[i][j] = null;
+            }
+        }
     }
 
-    /**
-     * Metodilla tulostetaan viesti, mitä halutaan näkyviin tasapelin tullessa.
-     */
-    public void tasaPeliViesti() {
-        JOptionPane.showMessageDialog(null, "Tasapeli!", "Tasapeli!", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    public String getVuoro() {
+    public Merkki getVuoro() {
         return this.vuorossa;
     }
 
     /**
-     * Metodilla palautetaan vuorossa olevan pelaajan nimi. Tarvitaan pelilaudan
-     * alareunassa olevaan lokeroon, mikä kertoo kumman pelaajan vuoro on.
+     * Metodi asettaa merkin valittuun ruutuun.
+     *
+     * @param x kertoo rivin
+     * @param y kertoo sarakkeen
+     * @return palauttaa Merkki:nä vuorossa olevan pelaajan
+     */
+    public Merkki asetaMerkki(int x, int y) {
+        this.merkkitaulu[x][y] = getVuoro();
+        return this.vuorossa;
+    }
+
+    /**
+     * Metodilla palautetaan vuorossa olevan pelaajan nimi.
      *
      * @return palauttaa vuorossa olevan pelaajan nimen
      */
     public String pelaajanVuoro() {
-        if (this.vuorossa.equals("X")) {
+        if (this.vuorossa.equals(Merkki.RISTI)) {
             return this.pelaaja1.getNimi();
         }
         return this.pelaaja2.getNimi();
-    }
-
-    /**
-     * Metodilla tulostetaan viesti, mitä halutaan näkyviin x:n voittaessa.
-     */
-    public void xVoittaa() {
-        this.pelaaja1.pelinVoitto();
-        JOptionPane.showMessageDialog(null, this.pelaaja1 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    /**
-     * Metodilla tulostetaan viesti, mitä halutaan näkyviin o:n voittaessa.
-     */
-    public void yVoittaa() {
-        this.pelaaja2.pelinVoitto();
-        JOptionPane.showMessageDialog(null, this.pelaaja2 + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**

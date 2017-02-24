@@ -12,3 +12,5 @@ Päivä | Tunnit | Kuvaus
 09.02.2017 | 4.0 | Luokkien muokkaus, testien tekoa
 13.02.2017 | 3.0 | Uusi lauta, vanhojen luokkien muokkausta
 17.02.2017 | 1.5 | Sekvenssikaavion teko
+23.02.2017 | 1.0 | Koodin korjailua, Merkki-enumin teko
+24.02.2017 | 6.0 | Logiikan parantelua, pelin aloitusikkunan tekoa, Viestit-käyttöliittymäluokka, uusi sekvenssikaavio ja luokkakaavion muuttamista

@@ -11,7 +11,6 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
 
     public RistinollaLauta3(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         uusiPeli = new Peli(pelaaja1, pelaaja2);
-        uusiPeli.laudanResetointi();
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
@@ -210,18 +209,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (uusiPeli.getMerkkitaulu()[0][1] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[0][1] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton2.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[0][1] = Merkki.NOLLA;
                 jButton2.setForeground(Color.blue);
             }
-            jButton2.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton2.setText(uusiPeli.asetaMerkki(0, 1).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -229,18 +227,16 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (uusiPeli.getMerkkitaulu()[0][0] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[0][0] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton1.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[0][0] = Merkki.NOLLA;
                 jButton1.setForeground(Color.blue);
             }
-            jButton1.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton1.setText(uusiPeli.asetaMerkki(0, 0).toString());
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -248,18 +244,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (uusiPeli.getMerkkitaulu()[0][2] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[0][2] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton3.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[0][2] = Merkki.NOLLA;
                 jButton3.setForeground(Color.blue);
             }
-            jButton3.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton3.setText(uusiPeli.asetaMerkki(0, 2).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -267,18 +262,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (uusiPeli.getMerkkitaulu()[1][0] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[1][0] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton4.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[1][0] = Merkki.NOLLA;
                 jButton4.setForeground(Color.blue);
             }
-            jButton4.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton4.setText(uusiPeli.asetaMerkki(1, 0).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -286,18 +280,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         if (uusiPeli.getMerkkitaulu()[1][1] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[1][1] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton5.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[1][1] = Merkki.NOLLA;
                 jButton5.setForeground(Color.blue);
             }
-            jButton5.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton5.setText(uusiPeli.asetaMerkki(1, 1).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -305,18 +298,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         if (uusiPeli.getMerkkitaulu()[1][2] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[1][2] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton6.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[1][2] = Merkki.NOLLA;
                 jButton6.setForeground(Color.blue);
             }
-            jButton6.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton6.setText(uusiPeli.asetaMerkki(1, 2).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -324,18 +316,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         if (uusiPeli.getMerkkitaulu()[2][0] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[2][0] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton7.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[2][0] = Merkki.NOLLA;
                 jButton7.setForeground(Color.blue);
             }
-            jButton7.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton7.setText(uusiPeli.asetaMerkki(2, 0).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -343,18 +334,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         if (uusiPeli.getMerkkitaulu()[2][1] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[2][1] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton8.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[2][1] = Merkki.NOLLA;
                 jButton8.setForeground(Color.blue);
             }
-            jButton8.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton8.setText(uusiPeli.asetaMerkki(2, 1).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -362,18 +352,17 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         if (uusiPeli.getMerkkitaulu()[2][2] == null) {
 
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                uusiPeli.getMerkkitaulu()[2][2] = Merkki.RISTI;
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
                 jButton9.setForeground(Color.red);
             } else {
-                uusiPeli.getMerkkitaulu()[2][2] = Merkki.NOLLA;
                 jButton9.setForeground(Color.blue);
             }
-            jButton9.setText(uusiPeli.getVuoro());
-            uusiPeli.kenenVuoro();
+            jButton9.setText(uusiPeli.asetaMerkki(2, 2).toString());
+
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
+            uusiPeli.vaihdaVuoro();
         }
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton9ActionPerformed

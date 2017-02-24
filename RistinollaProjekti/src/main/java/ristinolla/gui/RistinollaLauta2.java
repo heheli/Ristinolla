@@ -2,6 +2,7 @@ package ristinolla.gui;
 
 import java.awt.Color;
 import ristinolla.kayttaja.Pelaaja;
+import ristinolla.logiikka.Merkki;
 import ristinolla.logiikka.Peli;
 
 public class RistinollaLauta2 extends javax.swing.JFrame {
@@ -676,615 +677,642 @@ public class RistinollaLauta2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jButton1.getText().equalsIgnoreCase("")) {
-            jButton1.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[0][0] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[0][0] = Merkki.RISTI;
                 jButton1.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[0][0] = Merkki.NOLLA;
                 jButton1.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton1.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (jButton2.getText().equalsIgnoreCase("")) {
-            jButton2.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[0][1] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[0][1] = Merkki.RISTI;
                 jButton2.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[0][1] = Merkki.NOLLA;
                 jButton2.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton2.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (jButton3.getText().equalsIgnoreCase("")) {
-            jButton3.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[0][2] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[0][2] = Merkki.RISTI;
                 jButton3.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[0][2] = Merkki.NOLLA;
                 jButton3.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton3.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (jButton4.getText().equalsIgnoreCase("")) {
-            jButton4.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[1][0] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[1][0] = Merkki.RISTI;
                 jButton4.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[1][0] = Merkki.NOLLA;
                 jButton4.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton4.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if (jButton5.getText().equalsIgnoreCase("")) {
-            jButton5.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[1][1] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[1][1] = Merkki.RISTI;
                 jButton5.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[1][1] = Merkki.NOLLA;
                 jButton5.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton5.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        if (jButton6.getText().equalsIgnoreCase("")) {
-            jButton6.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[1][2] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[1][2] = Merkki.RISTI;
                 jButton6.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[1][2] = Merkki.NOLLA;
                 jButton6.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton6.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if (jButton7.getText().equalsIgnoreCase("")) {
-            jButton7.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[2][0] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[2][0] = Merkki.RISTI;
                 jButton7.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[2][0] = Merkki.NOLLA;
                 jButton7.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton7.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if (jButton8.getText().equalsIgnoreCase("")) {
-            jButton8.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[2][1] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[2][1] = Merkki.RISTI;
                 jButton8.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[2][1] = Merkki.NOLLA;
                 jButton8.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton8.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        if (jButton9.getText().equalsIgnoreCase("")) {
-            jButton9.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+        if (uusiPeli.getMerkkitaulu()[2][2] == null) {
+
+            if (uusiPeli.getVuoro() == Merkki.RISTI) {
+                uusiPeli.getMerkkitaulu()[2][2] = Merkki.RISTI;
                 jButton9.setForeground(Color.red);
             } else {
+                uusiPeli.getMerkkitaulu()[2][2] = Merkki.NOLLA;
                 jButton9.setForeground(Color.blue);
             }
-            uusiPeli.kenenVuoro();
+            jButton9.setText(uusiPeli.getVuoro().toString());
+
+            if (uusiPeli.pelinTarkastus()) {
+                laudanResetointi();
+            }
+            uusiPeli.vaihdaVuoro();
         }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        if (jButton10.getText().equalsIgnoreCase("")) {
-            jButton10.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton10.setForeground(Color.red);
-            } else {
-                jButton10.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton10.getText().equalsIgnoreCase("")) {
+//            jButton10.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton10.setForeground(Color.red);
+//            } else {
+//                jButton10.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        if (jButton11.getText().equalsIgnoreCase("")) {
-            jButton11.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton11.setForeground(Color.red);
-            } else {
-                jButton11.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton11.getText().equalsIgnoreCase("")) {
+//            jButton11.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton11.setForeground(Color.red);
+//            } else {
+//                jButton11.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        if (jButton12.getText().equalsIgnoreCase("")) {
-            jButton12.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton12.setForeground(Color.red);
-            } else {
-                jButton12.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton12.getText().equalsIgnoreCase("")) {
+//            jButton12.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton12.setForeground(Color.red);
+//            } else {
+//                jButton12.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        if (jButton13.getText().equalsIgnoreCase("")) {
-            jButton13.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton13.setForeground(Color.red);
-            } else {
-                jButton13.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton13.getText().equalsIgnoreCase("")) {
+//            jButton13.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton13.setForeground(Color.red);
+//            } else {
+//                jButton13.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        if (jButton14.getText().equalsIgnoreCase("")) {
-            jButton14.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton14.setForeground(Color.red);
-            } else {
-                jButton14.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton14.getText().equalsIgnoreCase("")) {
+//            jButton14.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton14.setForeground(Color.red);
+//            } else {
+//                jButton14.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        if (jButton15.getText().equalsIgnoreCase("")) {
-            jButton15.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton15.setForeground(Color.red);
-            } else {
-                jButton15.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton15.getText().equalsIgnoreCase("")) {
+//            jButton15.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton15.setForeground(Color.red);
+//            } else {
+//                jButton15.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        if (jButton16.getText().equalsIgnoreCase("")) {
-            jButton16.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton16.setForeground(Color.red);
-            } else {
-                jButton16.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton16.getText().equalsIgnoreCase("")) {
+//            jButton16.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton16.setForeground(Color.red);
+//            } else {
+//                jButton16.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        if (jButton17.getText().equalsIgnoreCase("")) {
-            jButton17.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton17.setForeground(Color.red);
-            } else {
-                jButton17.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton17.getText().equalsIgnoreCase("")) {
+//            jButton17.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton17.setForeground(Color.red);
+//            } else {
+//                jButton17.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        if (jButton18.getText().equalsIgnoreCase("")) {
-            jButton18.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton18.setForeground(Color.red);
-            } else {
-                jButton18.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton18.getText().equalsIgnoreCase("")) {
+//            jButton18.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton18.setForeground(Color.red);
+//            } else {
+//                jButton18.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (jButton19.getText().equalsIgnoreCase("")) {
-            jButton19.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton19.setForeground(Color.red);
-            } else {
-                jButton19.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton19.getText().equalsIgnoreCase("")) {
+//            jButton19.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton19.setForeground(Color.red);
+//            } else {
+//                jButton19.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        if (jButton20.getText().equalsIgnoreCase("")) {
-            jButton20.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton20.setForeground(Color.red);
-            } else {
-                jButton20.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton20.getText().equalsIgnoreCase("")) {
+//            jButton20.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton20.setForeground(Color.red);
+//            } else {
+//                jButton20.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        if (jButton21.getText().equalsIgnoreCase("")) {
-            jButton21.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton21.setForeground(Color.red);
-            } else {
-                jButton21.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton21.getText().equalsIgnoreCase("")) {
+//            jButton21.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton21.setForeground(Color.red);
+//            } else {
+//                jButton21.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        if (jButton22.getText().equalsIgnoreCase("")) {
-            jButton22.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton22.setForeground(Color.red);
-            } else {
-                jButton22.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton22.getText().equalsIgnoreCase("")) {
+//            jButton22.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton22.setForeground(Color.red);
+//            } else {
+//                jButton22.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        if (jButton23.getText().equalsIgnoreCase("")) {
-            jButton23.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton23.setForeground(Color.red);
-            } else {
-                jButton23.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton23.getText().equalsIgnoreCase("")) {
+//            jButton23.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton23.setForeground(Color.red);
+//            } else {
+//                jButton23.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        if (jButton24.getText().equalsIgnoreCase("")) {
-            jButton24.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton24.setForeground(Color.red);
-            } else {
-                jButton24.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton24.getText().equalsIgnoreCase("")) {
+//            jButton24.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton24.setForeground(Color.red);
+//            } else {
+//                jButton24.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        if (jButton25.getText().equalsIgnoreCase("")) {
-            jButton25.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton25.setForeground(Color.red);
-            } else {
-                jButton25.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton25.getText().equalsIgnoreCase("")) {
+//            jButton25.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton25.setForeground(Color.red);
+//            } else {
+//                jButton25.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        if (jButton26.getText().equalsIgnoreCase("")) {
-            jButton26.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton26.setForeground(Color.red);
-            } else {
-                jButton26.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton26.getText().equalsIgnoreCase("")) {
+//            jButton26.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton26.setForeground(Color.red);
+//            } else {
+//                jButton26.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        if (jButton27.getText().equalsIgnoreCase("")) {
-            jButton27.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton27.setForeground(Color.red);
-            } else {
-                jButton27.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton27.getText().equalsIgnoreCase("")) {
+//            jButton27.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton27.setForeground(Color.red);
+//            } else {
+//                jButton27.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        if (jButton28.getText().equalsIgnoreCase("")) {
-            jButton28.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton28.setForeground(Color.red);
-            } else {
-                jButton28.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton28.getText().equalsIgnoreCase("")) {
+//            jButton28.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton28.setForeground(Color.red);
+//            } else {
+//                jButton28.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        if (jButton29.getText().equalsIgnoreCase("")) {
-            jButton29.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton29.setForeground(Color.red);
-            } else {
-                jButton29.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton29.getText().equalsIgnoreCase("")) {
+//            jButton29.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton29.setForeground(Color.red);
+//            } else {
+//                jButton29.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
-        if (jButton30.getText().equalsIgnoreCase("")) {
-            jButton30.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton30.setForeground(Color.red);
-            } else {
-                jButton30.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton30.getText().equalsIgnoreCase("")) {
+//            jButton30.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton30.setForeground(Color.red);
+//            } else {
+//                jButton30.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
-        if (jButton31.getText().equalsIgnoreCase("")) {
-            jButton31.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton31.setForeground(Color.red);
-            } else {
-                jButton31.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton31.getText().equalsIgnoreCase("")) {
+//            jButton31.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton31.setForeground(Color.red);
+//            } else {
+//                jButton31.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-        if (jButton32.getText().equalsIgnoreCase("")) {
-            jButton32.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton32.setForeground(Color.red);
-            } else {
-                jButton32.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton32.getText().equalsIgnoreCase("")) {
+//            jButton32.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton32.setForeground(Color.red);
+//            } else {
+//                jButton32.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
-        if (jButton33.getText().equalsIgnoreCase("")) {
-            jButton33.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton33.setForeground(Color.red);
-            } else {
-                jButton33.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton33.getText().equalsIgnoreCase("")) {
+//            jButton33.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton33.setForeground(Color.red);
+//            } else {
+//                jButton33.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton33ActionPerformed
 
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
-        if (jButton34.getText().equalsIgnoreCase("")) {
-            jButton34.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton34.setForeground(Color.red);
-            } else {
-                jButton34.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton34.getText().equalsIgnoreCase("")) {
+//            jButton34.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton34.setForeground(Color.red);
+//            } else {
+//                jButton34.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        if (jButton35.getText().equalsIgnoreCase("")) {
-            jButton35.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton35.setForeground(Color.red);
-            } else {
-                jButton35.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton35.getText().equalsIgnoreCase("")) {
+//            jButton35.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton35.setForeground(Color.red);
+//            } else {
+//                jButton35.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
-        if (jButton36.getText().equalsIgnoreCase("")) {
-            jButton36.setText(uusiPeli.getVuoro());
-            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
-                jButton36.setForeground(Color.red);
-            } else {
-                jButton36.setForeground(Color.blue);
-            }
-            uusiPeli.kenenVuoro();
-        }
-        if (pelinVoitto()) {
-            laudanResetointi();
-        }
-        tasaPeli();
-        info.setText(uusiPeli.informaatio());
+//        if (jButton36.getText().equalsIgnoreCase("")) {
+//            jButton36.setText(uusiPeli.getVuoro());
+//            if (uusiPeli.getVuoro().equalsIgnoreCase("X")) {
+//                jButton36.setForeground(Color.red);
+//            } else {
+//                jButton36.setForeground(Color.blue);
+//            }
+//            uusiPeli.vaihdaVuoro();
+//        }
+//        if (pelinVoitto()) {
+//            laudanResetointi();
+//        }
+//        tasaPeli();
+//        info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton36ActionPerformed
 
 //    public static void main(String args[]) {

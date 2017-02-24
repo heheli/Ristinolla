@@ -5,9 +5,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import ristinolla.gui.Viestit;
 import ristinolla.kayttaja.Pelaaja;
 
-public class PeliTest {
+public class PeliTest extends Viestit {
 
     Peli uusiEka;
     Pelaaja eka;
@@ -22,15 +23,28 @@ public class PeliTest {
 
     @Test
     public void testaaVuoroAlussa() {
-        assertEquals(uusiEka.getVuoro(), "X");
+        assertEquals(uusiEka.getVuoro(), Merkki.RISTI);
     }
 
     @Test
     public void testaaVuoroUudestaan() {
-        uusiEka.kenenVuoro();
-        assertEquals(uusiEka.getVuoro(), "O");
-        uusiEka.kenenVuoro();
-        assertEquals(uusiEka.getVuoro(), "X");
+        uusiEka.vaihdaVuoro();
+        assertEquals(uusiEka.getVuoro(), Merkki.NOLLA);
+        uusiEka.vaihdaVuoro();
+        assertEquals(uusiEka.getVuoro(), Merkki.RISTI);
+    }
+
+    @Test
+    public void asetaMerkkiTest() {
+        uusiEka.asetaMerkki(0, 0);
+        assertEquals(Merkki.RISTI, uusiEka.getMerkkitaulu()[0][0]);
+        uusiEka.asetaMerkki(1, 0);
+        assertEquals(Merkki.RISTI, uusiEka.getMerkkitaulu()[1][0]);
+        uusiEka.vaihdaVuoro();
+        uusiEka.asetaMerkki(0, 0);
+        assertEquals(Merkki.NOLLA, uusiEka.getMerkkitaulu()[0][0]);
+        uusiEka.asetaMerkki(1, 0);
+        assertEquals(Merkki.NOLLA, uusiEka.getMerkkitaulu()[1][0]);
     }
 
     @Test
@@ -51,47 +65,47 @@ public class PeliTest {
     @Test
     public void pelaajanVuoroTest() {
         assertEquals("Pertti", uusiEka.pelaajanVuoro());
-        uusiEka.kenenVuoro();
+        uusiEka.vaihdaVuoro();
         assertEquals("Jonne", uusiEka.pelaajanVuoro());
-        uusiEka.kenenVuoro();
+        uusiEka.vaihdaVuoro();
         assertEquals("Pertti", uusiEka.pelaajanVuoro());
     }
 
     @Test
     public void xVoittaaTest1() {
         assertEquals(0, eka.getVoitetutPelit());
-        uusiEka.xVoittaa();
-        uusiEka.xVoittaa();
+        xVoittaa(eka);
+        xVoittaa(eka);
         assertEquals(2, eka.getVoitetutPelit());
     }
 
     @Test
     public void yVoittaaTest1() {
         assertEquals(0, toka.getVoitetutPelit());
-        uusiEka.yVoittaa();
-        uusiEka.yVoittaa();
+        yVoittaa(toka);
+        yVoittaa(toka);
         assertEquals(2, toka.getVoitetutPelit());
     }
 
     @Test
     public void xVoittaaTest2() {
         assertEquals(0, eka.getVoitetutPelit());
-        uusiEka.xVoittaa();
-        uusiEka.xVoittaa();
+        xVoittaa(eka);
+        xVoittaa(eka);
         assertEquals(2, eka.getVoitetutPelit());
-        uusiEka.yVoittaa();
-        uusiEka.yVoittaa();
+        yVoittaa(toka);
+        yVoittaa(toka);
         assertEquals(2, eka.getVoitetutPelit());
     }
 
     @Test
     public void yVoittaaTest2() {
         assertEquals(0, toka.getVoitetutPelit());
-        uusiEka.yVoittaa();
-        uusiEka.yVoittaa();
+        yVoittaa(toka);
+        yVoittaa(toka);
         assertEquals(2, toka.getVoitetutPelit());
-        uusiEka.xVoittaa();
-        uusiEka.xVoittaa();
+        xVoittaa(eka);
+        xVoittaa(eka);
         assertEquals(2, toka.getVoitetutPelit());
     }
 
@@ -102,9 +116,9 @@ public class PeliTest {
         uusiEka.tasaPeli();
         assertEquals(0, eka.getVoitetutPelit());
         assertEquals(0, toka.getVoitetutPelit());
-        uusiEka.xVoittaa();
+        xVoittaa(eka);
         uusiEka.tasaPeli();
-        uusiEka.yVoittaa();
+        yVoittaa(toka);
         assertEquals(1, eka.getVoitetutPelit());
         assertEquals(1, toka.getVoitetutPelit());
     }
@@ -119,7 +133,7 @@ public class PeliTest {
 
     @Test
     public void informaatioTest1() {
-        uusiEka.xVoittaa();
+        xVoittaa(eka);
         String testi = "Pelaajan " + "Pertti" + " pisteet: " + 1 + "            Vuorossa: "
                 + "Pertti" + "               "
                 + "Pelaajan " + "Jonne" + " pisteet: " + 0;
@@ -129,7 +143,7 @@ public class PeliTest {
 
     @Test
     public void informaatioTest2() {
-        uusiEka.yVoittaa();
+        yVoittaa(toka);
         String testi = "Pelaajan " + "Pertti" + " pisteet: " + 0 + "            Vuorossa: "
                 + "Pertti" + "               "
                 + "Pelaajan " + "Jonne" + " pisteet: " + 1;
@@ -143,6 +157,7 @@ public class PeliTest {
         uusiEka.getMerkkitaulu()[0][1] = Merkki.RISTI;
         uusiEka.getMerkkitaulu()[0][2] = Merkki.RISTI;
         assertTrue(uusiEka.pelinTarkastus());
+        assertEquals(1, this.eka.getVoitetutPelit());
     }
 
     @Test
@@ -178,6 +193,60 @@ public class PeliTest {
         uusiEka.getMerkkitaulu()[2][0] = Merkki.RISTI;
         uusiEka.getMerkkitaulu()[2][2] = Merkki.NOLLA;
         assertFalse(uusiEka.pelinTarkastus());
+    }
+
+    @Test
+    public void pelinTarkastusTest5() {
+        assertFalse(uusiEka.pelinTarkastus());
+        uusiEka.getMerkkitaulu()[0][0] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[1][0] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[2][0] = Merkki.RISTI;
+        assertTrue(uusiEka.pelinTarkastus());
+    }
+
+    @Test
+    public void pelinTarkastusTest6() {
+        assertFalse(uusiEka.pelinTarkastus());
+        uusiEka.getMerkkitaulu()[0][0] = Merkki.NOLLA;
+        uusiEka.getMerkkitaulu()[1][0] = Merkki.NOLLA;
+        uusiEka.getMerkkitaulu()[2][0] = Merkki.NOLLA;
+        assertTrue(uusiEka.pelinTarkastus());
+    }
+
+    @Test
+    public void pelinTarkastusTest7() {
+        assertFalse(uusiEka.pelinTarkastus());
+        uusiEka.getMerkkitaulu()[0][0] = Merkki.NOLLA;
+        uusiEka.getMerkkitaulu()[1][1] = Merkki.NOLLA;
+        uusiEka.getMerkkitaulu()[2][2] = Merkki.NOLLA;
+        assertTrue(uusiEka.pelinTarkastus());
+    }
+
+    @Test
+    public void pelinTarkastusTest8() {
+        assertFalse(uusiEka.pelinTarkastus());
+        uusiEka.getMerkkitaulu()[0][0] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[1][1] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[2][2] = Merkki.RISTI;
+        assertTrue(uusiEka.pelinTarkastus());
+    }
+
+    @Test
+    public void pelinTarkastusTest9() {
+        assertFalse(uusiEka.pelinTarkastus());
+        uusiEka.getMerkkitaulu()[2][0] = Merkki.NOLLA;
+        uusiEka.getMerkkitaulu()[1][1] = Merkki.NOLLA;
+        uusiEka.getMerkkitaulu()[0][2] = Merkki.NOLLA;
+        assertTrue(uusiEka.pelinTarkastus());
+    }
+
+    @Test
+    public void pelinTarkastusTest10() {
+        assertFalse(uusiEka.pelinTarkastus());
+        uusiEka.getMerkkitaulu()[0][0] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[1][1] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[2][2] = Merkki.RISTI;
+        assertTrue(uusiEka.pelinTarkastus());
     }
 
     @Test
