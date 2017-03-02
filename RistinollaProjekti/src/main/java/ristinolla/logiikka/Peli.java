@@ -1,7 +1,5 @@
 package ristinolla.logiikka;
 
-import java.util.Arrays;
-import javax.swing.JOptionPane;
 import ristinolla.gui.Viestit;
 import ristinolla.kayttaja.Pelaaja;
 
@@ -147,39 +145,13 @@ public class Peli extends Viestit {
      * @return totuusarvo sille loppuuko peli
      */
     public boolean pelinTarkastus() {
-        if (tulikoVoittoVaaka(Merkki.RISTI) || tulikoVoittoVaaka(Merkki.NOLLA)) {
-            if (this.vuorossa == Merkki.RISTI) {
-                xVoittaa(this.pelaaja1);
-            } else {
-                yVoittaa(this.pelaaja2);
-            }
+        if (this.vuorossa == Merkki.RISTI && (tulikoVoittoVaaka(Merkki.RISTI)) || tulikoVoittoPysty(Merkki.RISTI) || tulikoVoittoKulma1(Merkki.RISTI) || tulikoVoittoKulma2(Merkki.RISTI)) {
+            xVoittaa(this.pelaaja1);
             return true;
-        }
-        if (tulikoVoittoPysty(Merkki.RISTI) || tulikoVoittoPysty(Merkki.NOLLA)) {
-            if (this.vuorossa == Merkki.RISTI) {
-                xVoittaa(this.pelaaja1);
-            } else {
-                yVoittaa(this.pelaaja2);
-            }
+        } else if (this.vuorossa == Merkki.NOLLA && (tulikoVoittoVaaka(Merkki.NOLLA)) || tulikoVoittoPysty(Merkki.NOLLA) || tulikoVoittoKulma1(Merkki.NOLLA) || tulikoVoittoKulma2(Merkki.NOLLA)) {
+            oVoittaa(this.pelaaja2);
             return true;
-        }
-        if (tulikoVoittoKulma1(Merkki.RISTI) || tulikoVoittoKulma1(Merkki.NOLLA)) {
-            if (this.vuorossa == Merkki.RISTI) {
-                xVoittaa(this.pelaaja1);
-            } else {
-                yVoittaa(this.pelaaja2);
-            }
-            return true;
-        }
-        if (tulikoVoittoKulma2(Merkki.RISTI) || tulikoVoittoKulma2(Merkki.NOLLA)) {
-            if (this.vuorossa == Merkki.RISTI) {
-                xVoittaa(this.pelaaja1);
-            } else {
-                yVoittaa(this.pelaaja2);
-            }
-            return true;
-        }
-        if (tasaPeli()) {
+        } else if (tasaPeli()) {
             tasaPeliViesti();
             return true;
         }

@@ -75,7 +75,7 @@ public class Aloitus extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel1.setText("Tervetuloa pelaamaan ristinollaa! ");
 
-        jLabel2.setText("Jos pelin säännöt eivät ole tutut, et niitä tarvitse.");
+        jLabel2.setText("--------------------------------------------------------");
 
         jLabel3.setText("Kirjoittakaa pelaajien nimet niille varatuille paikoille.");
 
@@ -141,6 +141,7 @@ public class Aloitus extends javax.swing.JFrame {
                 lauta1.setVisible(true);
             }
         });
+        
     }//GEN-LAST:event_Lauta1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed

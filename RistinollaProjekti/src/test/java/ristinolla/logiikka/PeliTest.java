@@ -82,8 +82,8 @@ public class PeliTest extends Viestit {
     @Test
     public void yVoittaaTest1() {
         assertEquals(0, toka.getVoitetutPelit());
-        yVoittaa(toka);
-        yVoittaa(toka);
+        oVoittaa(toka);
+        oVoittaa(toka);
         assertEquals(2, toka.getVoitetutPelit());
     }
 
@@ -93,16 +93,16 @@ public class PeliTest extends Viestit {
         xVoittaa(eka);
         xVoittaa(eka);
         assertEquals(2, eka.getVoitetutPelit());
-        yVoittaa(toka);
-        yVoittaa(toka);
+        oVoittaa(toka);
+        oVoittaa(toka);
         assertEquals(2, eka.getVoitetutPelit());
     }
 
     @Test
     public void yVoittaaTest2() {
         assertEquals(0, toka.getVoitetutPelit());
-        yVoittaa(toka);
-        yVoittaa(toka);
+        oVoittaa(toka);
+        oVoittaa(toka);
         assertEquals(2, toka.getVoitetutPelit());
         xVoittaa(eka);
         xVoittaa(eka);
@@ -118,7 +118,7 @@ public class PeliTest extends Viestit {
         assertEquals(0, toka.getVoitetutPelit());
         xVoittaa(eka);
         uusiEka.tasaPeli();
-        yVoittaa(toka);
+        oVoittaa(toka);
         assertEquals(1, eka.getVoitetutPelit());
         assertEquals(1, toka.getVoitetutPelit());
     }
@@ -143,7 +143,7 @@ public class PeliTest extends Viestit {
 
     @Test
     public void informaatioTest2() {
-        yVoittaa(toka);
+        oVoittaa(toka);
         String testi = "Pelaajan " + "Pertti" + " pisteet: " + 0 + "            Vuorossa: "
                 + "Pertti" + "               "
                 + "Pelaajan " + "Jonne" + " pisteet: " + 1;
@@ -163,6 +163,7 @@ public class PeliTest extends Viestit {
     @Test
     public void pelinTarkastusTest2() {
         assertFalse(uusiEka.pelinTarkastus());
+        uusiEka.vaihdaVuoro();
         uusiEka.getMerkkitaulu()[0][0] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[0][1] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[0][2] = Merkki.NOLLA;

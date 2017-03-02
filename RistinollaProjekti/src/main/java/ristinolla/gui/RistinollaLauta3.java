@@ -1,6 +1,7 @@
 package ristinolla.gui;
 
 import java.awt.Color;
+import javax.swing.JButton;
 import ristinolla.kayttaja.Pelaaja;
 import ristinolla.logiikka.Merkki;
 import ristinolla.logiikka.Peli;
@@ -206,164 +207,64 @@ public class RistinollaLauta3 extends javax.swing.JFrame {
         uusiPeli.laudanResetointi();
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[0][1] == null) {
+    private void peli(JButton nappi, int x, int y) {
+        if (uusiPeli.getMerkkitaulu()[x][y] == null) {
 
             if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton2.setForeground(Color.red);
+                nappi.setForeground(Color.red);
             } else {
-                jButton2.setForeground(Color.blue);
+                nappi.setForeground(Color.blue);
             }
-            jButton2.setText(uusiPeli.asetaMerkki(0, 1).toString());
-
+            nappi.setText(uusiPeli.asetaMerkki(x, y).toString());
             if (uusiPeli.pelinTarkastus()) {
                 laudanResetointi();
             }
             uusiPeli.vaihdaVuoro();
         }
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        peli(jButton2, 0, 1);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[0][0] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton1.setForeground(Color.red);
-            } else {
-                jButton1.setForeground(Color.blue);
-            }
-            jButton1.setText(uusiPeli.asetaMerkki(0, 0).toString());
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton1, 0, 0);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[0][2] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton3.setForeground(Color.red);
-            } else {
-                jButton3.setForeground(Color.blue);
-            }
-            jButton3.setText(uusiPeli.asetaMerkki(0, 2).toString());
-
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton3, 0, 2);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[1][0] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton4.setForeground(Color.red);
-            } else {
-                jButton4.setForeground(Color.blue);
-            }
-            jButton4.setText(uusiPeli.asetaMerkki(1, 0).toString());
-
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton4, 1, 0);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[1][1] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton5.setForeground(Color.red);
-            } else {
-                jButton5.setForeground(Color.blue);
-            }
-            jButton5.setText(uusiPeli.asetaMerkki(1, 1).toString());
-
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton5, 1, 1);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[1][2] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton6.setForeground(Color.red);
-            } else {
-                jButton6.setForeground(Color.blue);
-            }
-            jButton6.setText(uusiPeli.asetaMerkki(1, 2).toString());
-
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton6, 1, 2);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[2][0] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton7.setForeground(Color.red);
-            } else {
-                jButton7.setForeground(Color.blue);
-            }
-            jButton7.setText(uusiPeli.asetaMerkki(2, 0).toString());
-
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton7, 2, 0);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[2][1] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton8.setForeground(Color.red);
-            } else {
-                jButton8.setForeground(Color.blue);
-            }
-            jButton8.setText(uusiPeli.asetaMerkki(2, 1).toString());
-
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton8, 2, 1);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        if (uusiPeli.getMerkkitaulu()[2][2] == null) {
-
-            if (uusiPeli.getVuoro() == Merkki.RISTI) {
-                jButton9.setForeground(Color.red);
-            } else {
-                jButton9.setForeground(Color.blue);
-            }
-            jButton9.setText(uusiPeli.asetaMerkki(2, 2).toString());
-
-            if (uusiPeli.pelinTarkastus()) {
-                laudanResetointi();
-            }
-            uusiPeli.vaihdaVuoro();
-        }
+        peli(jButton9, 2, 2);
         info.setText(uusiPeli.informaatio());
     }//GEN-LAST:event_jButton9ActionPerformed
 

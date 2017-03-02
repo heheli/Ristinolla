@@ -28,7 +28,7 @@ public abstract class Viestit {
      *
      * @param toka Pelaaja 2
      */
-    public void yVoittaa(Pelaaja toka) {
+    public void oVoittaa(Pelaaja toka) {
         toka.pelinVoitto();
         JOptionPane.showMessageDialog(null, toka + " voittaa!", "Voitto!", JOptionPane.INFORMATION_MESSAGE);
     }
