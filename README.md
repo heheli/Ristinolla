@@ -14,3 +14,5 @@ Ristinolla-projekti
 
 [checkstyle](https://htmlpreview.github.io/?https://github.com/heheli/Ristinolla/blob/master/dokumentaatio/checkstyle-raportti/checkstyle.html)
 
+[javadoc](https://htmlpreview.github.io/?https://github.com/heheli/Ristinolla/blob/master/javadoc/index.html)
+
