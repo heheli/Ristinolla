@@ -14,3 +14,5 @@ Päivä | Tunnit | Kuvaus
 17.02.2017 | 1.5 | Sekvenssikaavion teko
 23.02.2017 | 1.0 | Koodin korjailua, Merkki-enumin teko
 24.02.2017 | 6.0 | Logiikan parantelua, pelin aloitusikkunan tekoa, Viestit-käyttöliittymäluokka, uusi sekvenssikaavio ja luokkakaavion muuttamista
+2.3.2017   | 4.0 | Koodin siistimistä, kommentointia
+3.3.2017   | 4.0 | Koodin ja dokumentoinnin viimeistely palautusta varten ja lopullinen palautus

@@ -12,10 +12,9 @@ public class Pelaaja {
     /**
      * Pelaaja-luokan konstruktori, jossa nimi ja laskuri voitoille.
      *
-     * @param nimi Pelaajalle asetettu nimi
      */
-    public Pelaaja(String nimi) {
-        this.nimi = nimi;
+    public Pelaaja() {
+        this.nimi = "";
         this.voitetutPelit = 0;
     }
 
@@ -28,6 +27,10 @@ public class Pelaaja {
 
     public String getNimi() {
         return this.nimi;
+    }
+
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
     }
 
     public int getVoitetutPelit() {

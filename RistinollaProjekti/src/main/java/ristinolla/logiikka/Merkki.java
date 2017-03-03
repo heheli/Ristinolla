@@ -1,5 +1,10 @@
 package ristinolla.logiikka;
 
+/**
+ * Luokka määrittää pelissä tarvittavat merkit eli risti ja nolla.
+ *
+ * @author poutihel
+ */
 public enum Merkki {
 
     RISTI, NOLLA;

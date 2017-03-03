@@ -16,8 +16,10 @@ public class PeliTest extends Viestit {
 
     @Before
     public void setUp() {
-        eka = new Pelaaja("Pertti");
-        toka = new Pelaaja("Jonne");
+        eka = new Pelaaja();
+        toka = new Pelaaja();
+        eka.setNimi("Pertti");
+        toka.setNimi("Jonne");
         uusiEka = new Peli(eka, toka);
     }
 
@@ -176,12 +178,13 @@ public class PeliTest extends Viestit {
         uusiEka.getMerkkitaulu()[0][0] = Merkki.RISTI;
         uusiEka.getMerkkitaulu()[0][1] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[0][2] = Merkki.RISTI;
-        uusiEka.getMerkkitaulu()[1][0] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[1][0] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[1][1] = Merkki.RISTI;
         uusiEka.getMerkkitaulu()[1][2] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[2][0] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[2][1] = Merkki.RISTI;
-        uusiEka.getMerkkitaulu()[2][2] = Merkki.NOLLA;
+        uusiEka.getMerkkitaulu()[2][2] = Merkki.RISTI;
+        uusiEka.vaihdaVuoro();
         assertTrue(uusiEka.pelinTarkastus());
     }
 
@@ -238,6 +241,7 @@ public class PeliTest extends Viestit {
         uusiEka.getMerkkitaulu()[2][0] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[1][1] = Merkki.NOLLA;
         uusiEka.getMerkkitaulu()[0][2] = Merkki.NOLLA;
+        uusiEka.vaihdaVuoro();
         assertTrue(uusiEka.pelinTarkastus());
     }
 

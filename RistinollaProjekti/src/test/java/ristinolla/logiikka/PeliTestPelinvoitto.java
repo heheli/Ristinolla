@@ -13,27 +13,28 @@ public class PeliTestPelinvoitto {
     Pelaaja toka;
 
     public PeliTestPelinvoitto() {
-        eka = new Pelaaja("Pertti");
-        toka = new Pelaaja("Jonne");
+        eka = new Pelaaja();
+        toka = new Pelaaja();
+        eka.setNimi("Pertti");
+        toka.setNimi("Jonne");
         uusiEka = new Peli(eka, toka);
     }
 
-//    @Test
-//    public void tulikoVoittoVaakaRisti() {
-//        assertFalse(uusiEka.tulikoVoittoVaaka(Merkki.RISTI));
-//        assertFalse(uusiEka.tulikoVoittoVaaka(Merkki.NOLLA));
-//        assertFalse(uusiEka.tasaPeli());
-//
-//        uusiEka.getMerkkitaulu()[0][0] = Merkki.RISTI;
-//        uusiEka.getMerkkitaulu()[0][1] = Merkki.RISTI;
-//        uusiEka.getMerkkitaulu()[0][2] = Merkki.RISTI;
-//
-//        assertTrue(uusiEka.tulikoVoittoVaaka(Merkki.RISTI));
-//        assertEquals(1, eka.getVoitetutPelit());
-//        assertFalse(uusiEka.tulikoVoittoVaaka(Merkki.NOLLA));
-//        assertEquals(0, toka.getVoitetutPelit());
-//        assertFalse(uusiEka.tasaPeli());
-//    }
+    @Test
+    public void tulikoVoittoVaakaRisti() {
+        assertFalse(uusiEka.tulikoVoittoVaaka(Merkki.RISTI));
+        assertFalse(uusiEka.tulikoVoittoVaaka(Merkki.NOLLA));
+        assertFalse(uusiEka.tasaPeli());
+
+        uusiEka.getMerkkitaulu()[0][0] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[0][1] = Merkki.RISTI;
+        uusiEka.getMerkkitaulu()[0][2] = Merkki.RISTI;
+        uusiEka.vaihdaVuoro();
+        assertTrue(uusiEka.tulikoVoittoVaaka(Merkki.RISTI));
+        assertFalse(uusiEka.tulikoVoittoVaaka(Merkki.NOLLA));
+        assertFalse(uusiEka.tasaPeli());
+    }
+
     @Test
     public void pelinVoittoTest2X() {
         assertFalse(uusiEka.tulikoVoittoVaaka(Merkki.RISTI));

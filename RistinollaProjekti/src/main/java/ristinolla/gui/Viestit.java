@@ -2,8 +2,13 @@ package ristinolla.gui;
 
 import javax.swing.JOptionPane;
 import ristinolla.kayttaja.Pelaaja;
-import ristinolla.logiikka.Merkki;
 
+/**
+ * Abstrakti luokka, jolla saadaan suoritettua pelin päättymiseen liittyvät
+ * ilmoitukset ja toiminnot.
+ *
+ * @author poutihel
+ */
 public abstract class Viestit {
 
     /**
@@ -15,6 +20,7 @@ public abstract class Viestit {
 
     /**
      * Metodilla tulostetaan viesti, mitä halutaan näkyviin x:n voittaessa.
+     * Metodi lisää pelaajalle x yhden voiton.
      *
      * @param eka Pelaaja 1
      */
@@ -25,6 +31,7 @@ public abstract class Viestit {
 
     /**
      * Metodilla tulostetaan viesti, mitä halutaan näkyviin o:n voittaessa.
+     * Metodi lisää pelaajalle y yhden voiton.
      *
      * @param toka Pelaaja 2
      */

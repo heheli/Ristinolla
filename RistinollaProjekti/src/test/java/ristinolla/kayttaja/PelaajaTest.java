@@ -11,12 +11,16 @@ public class PelaajaTest {
 
     @Before
     public void setUp() {
-        eka = new Pelaaja("Pertti");
-        toka = new Pelaaja("Jonne");
+        eka = new Pelaaja();
+        toka = new Pelaaja();
     }
 
     @Test
-    public void testNimi() {
+    public void testSetNimi() {
+        assertEquals("", eka.getNimi());
+        assertEquals("", toka.getNimi());
+        eka.setNimi("Pertti");
+        toka.setNimi("Jonne");
         assertEquals("Pertti", eka.getNimi());
         assertEquals("Jonne", toka.getNimi());
     }
@@ -34,6 +38,7 @@ public class PelaajaTest {
 
     @Test
     public void testaaToString() {
+        eka.setNimi("Pertti");
         assertEquals("Pertti", eka.toString());
     }
 

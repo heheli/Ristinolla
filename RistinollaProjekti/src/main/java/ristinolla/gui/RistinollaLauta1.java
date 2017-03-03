@@ -1,7 +1,6 @@
 package ristinolla.gui;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import ristinolla.kayttaja.Pelaaja;
 import ristinolla.logiikka.Merkki;
@@ -233,7 +232,6 @@ public class RistinollaLauta1 extends javax.swing.JFrame {
             uusiPeli.vaihdaVuoro();
         }
     }
-
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         peli(jButton1, 0, 0);

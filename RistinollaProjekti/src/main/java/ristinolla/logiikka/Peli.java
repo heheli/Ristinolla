@@ -4,7 +4,10 @@ import ristinolla.gui.Viestit;
 import ristinolla.kayttaja.Pelaaja;
 
 /**
- * Luokka sisältää pelilautojen logiikkaa.
+ * Luokka sisältää tarvittavan logiikan ristinollalle ja sen hetkisen
+ * pelitilanteen.
+ *
+ * @author poutihel
  */
 public class Peli extends Viestit {
 
@@ -49,9 +52,9 @@ public class Peli extends Viestit {
      * @return Voiton totuusarvo
      */
     public boolean tulikoVoittoVaaka(Merkki merkki) {
-        for (int y = 0; y < 3; y++) {
+        for (int y = 0; y < merkkitaulu.length; y++) {
             int maara = 0;
-            for (int x = 0; x < 3; x++) {
+            for (int x = 0; x < merkkitaulu.length; x++) {
                 if (merkkitaulu[y][x] == merkki) {
                     maara++;
                 }
@@ -70,9 +73,9 @@ public class Peli extends Viestit {
      * @return Voiton totuusarvo
      */
     public boolean tulikoVoittoPysty(Merkki merkki) {
-        for (int y = 0; y < 3; y++) {
+        for (int y = 0; y < merkkitaulu.length; y++) {
             int maara = 0;
-            for (int x = 0; x < 3; x++) {
+            for (int x = 0; x < merkkitaulu.length; x++) {
                 if (merkkitaulu[x][y] == merkki) {
                     maara++;
                 }
@@ -85,14 +88,14 @@ public class Peli extends Viestit {
     }
 
     /**
-     * Metodilla tarkastetaan tuliko voitto nurkasta nurkkaan.
+     * Metodilla tarkastetaan tuliko voitto kulmittain.
      *
      * @param merkki Tarkastettava merkki
      * @return Voiton totuusarvo
      */
     public boolean tulikoVoittoKulma1(Merkki merkki) {
         int maara = 0;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < merkkitaulu.length; i++) {
             if (merkkitaulu[i][i] == merkki) {
                 maara++;
             }
@@ -104,7 +107,7 @@ public class Peli extends Viestit {
     }
 
     /**
-     * Metodilla tarkastetaan tuliko voitto nurkasta nurkkaan.
+     * Metodilla tarkastetaan tuliko voitto kulmittain.
      *
      * @param merkki Tarkastettava merkki
      * @return Voiton totuusarvo
@@ -139,8 +142,8 @@ public class Peli extends Viestit {
     }
 
     /**
-     * Metodi kokoaa kaikki pelin päättymiseen liittyvät metodit, ja palauttaa
-     * arvon laudalle.
+     * Metodilla tarkastetaan onko peli päättynyt. Tarkastamiseen käytetään
+     * tulikoVoitto-metodeja.
      *
      * @return totuusarvo sille loppuuko peli
      */

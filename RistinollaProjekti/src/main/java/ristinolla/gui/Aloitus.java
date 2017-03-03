@@ -12,8 +12,8 @@ public class Aloitus extends javax.swing.JFrame {
         initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
-        this.eka = null;
-        this.toka = null;
+        this.eka = new Pelaaja();
+        this.toka = new Pelaaja();
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +32,8 @@ public class Aloitus extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tervetuloa pelaamaan!");
-        setForeground(javax.swing.UIManager.getDefaults().getColor("Nb.ScrollPane.Border.color"));
+        setBackground(java.awt.Color.lightGray);
+        setForeground(java.awt.Color.lightGray);
 
         Lauta3.setFont(new java.awt.Font("Arial", 1, 50)); // NOI18N
         Lauta3.setText("3");
@@ -58,14 +59,14 @@ public class Aloitus extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("Kirjoita pelaajan 1 nimi");
+        jTextField1.setText("Pelaaja 1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("Kirjoita pelaajan 2 nimi");
+        jTextField2.setText("Pelaaja 2");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -134,23 +135,25 @@ public class Aloitus extends javax.swing.JFrame {
 
     private void Lauta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lauta1ActionPerformed
         setVisible(false);
-        dispose();
+        this.eka.setNimi(jTextField1.getText());
+        this.toka.setNimi(jTextField2.getText());
         RistinollaLauta1 lauta1 = new RistinollaLauta1(this.eka, this.toka);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 lauta1.setVisible(true);
             }
         });
-        
+
     }//GEN-LAST:event_Lauta1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        this.toka = new Pelaaja(jTextField2.getText());
+
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void Lauta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lauta2ActionPerformed
         setVisible(false);
-        dispose();
+        this.eka.setNimi(jTextField1.getText());
+        this.toka.setNimi(jTextField2.getText());
         RistinollaLauta2 lauta2 = new RistinollaLauta2(this.eka, this.toka);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -161,7 +164,8 @@ public class Aloitus extends javax.swing.JFrame {
 
     private void Lauta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lauta3ActionPerformed
         setVisible(false);
-        dispose();
+        this.eka.setNimi(jTextField1.getText());
+        this.toka.setNimi(jTextField2.getText());
         RistinollaLauta3 lauta3 = new RistinollaLauta3(this.eka, this.toka);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -172,7 +176,7 @@ public class Aloitus extends javax.swing.JFrame {
     }//GEN-LAST:event_Lauta3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        this.eka = new Pelaaja(jTextField1.getText());
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     public void aloita() {
@@ -184,14 +188,14 @@ public class Aloitus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Lauta1;
-    private javax.swing.JButton Lauta2;
-    private javax.swing.JButton Lauta3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public javax.swing.JButton Lauta1;
+    public javax.swing.JButton Lauta2;
+    public javax.swing.JButton Lauta3;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
