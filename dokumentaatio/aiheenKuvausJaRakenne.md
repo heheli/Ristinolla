@@ -4,7 +4,7 @@
 
 * Käyttäjän toiminnot: Alkunäkymässä pelaajat kirjoittavat nimensä niille varattuihin kenttiin ja valitsevat yhden laudan kolmesta jolloin peli käynnistyy.
 
-* Määrittelyvaiheen luokkakaavio:  ![luokkakaavio](RistinollaLuokkakaavioVko5.png)
+* Luokkakaavio:  ![luokkakaavio](RistinollaLuokkakaavioVko5.png)
 
 * Sekvenssikaavio pelin aloittamisesta 17.2.2017 RistinollaLaudalla1:
 ![sekvenssikaavio] (Uusi peli laudalla 1.png)
